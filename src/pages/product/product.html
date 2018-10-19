@@ -1,0 +1,94 @@
+<!--
+  Generated template for the ProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      สิ้นค้า
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="product">
+      <ion-segment-button value="necklace">
+        สร้อยคอ
+      </ion-segment-button>
+      <ion-segment-button value="rings">
+        แหวน
+      </ion-segment-button>
+      <ion-segment-button value="bangle">
+        กำไล
+      </ion-segment-button>
+      <ion-segment-button value="bracelets">
+        สร้อยข้อมือ
+      </ion-segment-button>
+      <ion-segment-button value="earring">
+        ต่างหู
+      </ion-segment-button>
+      <ion-segment-button value="pendant">
+        จี้
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="product">
+    <ion-list *ngSwitchCase="'necklace'">
+      <ion-item *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>สร้อยคอ</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'rings'">
+      <ion-item *ngFor="let number of [1,2,3]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>แหวน</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'bangle'">
+      <ion-item *ngFor="let number of [1,2,3]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>กำไล</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'bracelets'">
+      <ion-item *ngFor="let number of [1,2,3]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>สร้อยข้อมือ</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'earring'">
+      <ion-item *ngFor="let number of [1,2,3]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>ต่างหู</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'pendant'">
+      <ion-item *ngFor="let number of [1,2,3]">
+        <ion-thumbnail item-start>
+          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+        </ion-thumbnail>
+        <h2>จี้</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

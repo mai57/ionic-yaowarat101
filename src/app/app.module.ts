@@ -10,6 +10,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FirstpagePage } from '../pages/firstpage/firstpage';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { ProfilePage } from '../pages/profile/profile';
+import { PointPage } from '../pages/point/point';
+import { CouponPage } from '../pages/coupon/coupon';
+import { CreditPage } from '../pages/credit/credit';
+import { ProductPage } from '../pages/product/product';
+import { RewardsPage } from '../pages/rewards/rewards';
 
 @NgModule({
   declarations: [
@@ -17,7 +26,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FirstpagePage,
+    LoginPage,
+    RegisterPage,
+    ProfilePage,
+    PointPage,
+    CouponPage,
+    CreditPage,
+    ProductPage,
+    RewardsPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +47,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FirstpagePage,
+    LoginPage,
+    RegisterPage,
+    ProfilePage,
+    PointPage,
+    CouponPage,
+    CreditPage,
+    ProductPage,
+    RewardsPage
   ],
   providers: [
     StatusBar,
