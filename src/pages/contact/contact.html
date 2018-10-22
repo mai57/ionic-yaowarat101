@@ -25,17 +25,17 @@
   </ion-grid>
 
   
-  <!-- <ion-list > -->
-    <ion-item >
-        <ion-icon ios="ios-call" md="md-call"></ion-icon>
+  <ion-list no-lines>
+    <ion-item (click)="call()">
+        <ion-icon ios="ios-call" md="md-call"></ion-icon> <a style="font-size:15px"> 089-4245999</a>
     </ion-item>
-    <ion-item >
-        <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+    <ion-item (click)="OpenUrl('https://line.me/R/ti/p/%40yaowarat')">
+        <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon> <a style="font-size:15px"> @yaowarat</a>
     </ion-item>
-    <ion-item >
-        <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+    <ion-item (click)="OpenUrl('https://yaowarat101.net')">
+        <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon> <a style="font-size:15px"> บริษัทห้างทองเยาวราช จำกัด</a>
     </ion-item>
-  <!-- </ion-list> -->
+  </ion-list>
 
 
 

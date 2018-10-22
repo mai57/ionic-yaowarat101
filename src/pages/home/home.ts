@@ -7,6 +7,7 @@ import { CreditPage } from '../credit/credit';
 import { AboutPage } from '../about/about';
 import { ProductPage } from '../product/product';
 import { ContactPage } from '../contact/contact';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ import { ContactPage } from '../contact/contact';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private inAppBrowser: InAppBrowser) {
 
   }
 
@@ -46,5 +47,14 @@ export class HomePage {
 
   toContact(){
     this.navCtrl.push(ContactPage);
+  }
+
+  OpenUrl(url:string) {
+    const options: InAppBrowserOptions ={
+      zoom:'no'
+    }
+    const browser = this.inAppBrowser.create(url,'_system',options);
+    browser.show();
+    console.log(browser);
   }
 }
