@@ -2,9 +2,17 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { ProductService } from '../pages/product/product.serveice';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from '../pages/firstpage/user.service';
+
+//Filter
+import { SearchProductFilterPipe } from '../pages/product/searchProductFilter.pipe';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { CallNumber } from '@ionic-native/call-number';
+// import { WebStorageService } from 'angular-webstorage-service';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -38,11 +46,14 @@ import { RewardsPage } from '../pages/rewards/rewards';
     CouponPage,
     CreditPage,
     ProductPage,
-    RewardsPage
+    RewardsPage,
+    SearchProductFilterPipe
+    // WebStorageService
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +77,10 @@ import { RewardsPage } from '../pages/rewards/rewards';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
-    CallNumber
+    CallNumber,
+    ProductService,
+    UserService
+    
   ]
 })
 export class AppModule {}

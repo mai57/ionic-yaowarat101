@@ -12,7 +12,7 @@
   </ion-navbar>
 
   <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="product">
+    <ion-segment [(ngModel)]="typproduct">
       <ion-segment-button value="necklace">
         สร้อยคอ
       </ion-segment-button>
@@ -36,59 +36,68 @@
 </ion-header>
 
 <ion-content>
-  <div [ngSwitch]="product">
+  <div [ngSwitch]="typproduct">
     <ion-list *ngSwitchCase="'necklace'">
-      <ion-item *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
-        <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : categoryBy as testvalue ; let i=index">
+        <ion-thumbnail item-start (click)=showdata()>
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>สร้อยคอ</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'rings'">
-      <ion-item *ngFor="let number of [1,2,3]">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'แหวน' as testvalue ; let i=index">
         <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>แหวน</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'bangle'">
-      <ion-item *ngFor="let number of [1,2,3]">
-        <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'กำไล' as testvalue ; let i=index">
+        <ion-thumbnail item-start >
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>กำไล</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'bracelets'">
-      <ion-item *ngFor="let number of [1,2,3]">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'สร้อยข้อมือ' as testvalue ; let i=index">
         <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>สร้อยข้อมือ</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'earring'">
-      <ion-item *ngFor="let number of [1,2,3]">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'ต่างหู' as testvalue ; let i=index">
         <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>ต่างหู</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'pendant'">
-      <ion-item *ngFor="let number of [1,2,3]">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'จี้' as testvalue ; let i=index">
         <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/products/{{number}}.jpg">
+          <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>จี้</h2>
+        <h2>{{product.p_Id}}</h2>
       </ion-item>
     </ion-list>
   </div>
 </ion-content>
+
+
+<div>
+  <style>
+    .hidden {
+      visibility: hidden
+    }
+  </style>
+</div>

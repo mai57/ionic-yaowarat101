@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+// import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirstpagePage } from '../pages/firstpage/firstpage';
@@ -11,7 +13,7 @@ import { AboutPage } from '../pages/about/about';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = FirstpagePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
