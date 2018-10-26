@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, Inject } from '@angular/core';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { FirstpagePage } from '../firstpage/firstpage';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,15 +16,26 @@ import { FirstpagePage } from '../firstpage/firstpage';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  userName = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public appCtrl: App,
+    private storage: Storage) {
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    this.storage.get('userName').then((val) => {
+      this.userName = val;
+      // console.log('Your age is', this.userName);
+    });
   }
 
-  toLogout(){
-    this.navCtrl.setRoot(FirstpagePage);
+  // toLogout(){
+  //   this.navCtrl.popToRoot ();
+  //   this.navCtrl.setRoot(FirstpagePage);
+  // }
+
+  logout() {
+    this.appCtrl.getRootNav().setRoot(FirstpagePage);
   }
 }

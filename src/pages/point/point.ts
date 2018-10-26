@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RewardsPage } from '../rewards/rewards';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PointPage page.
  *
@@ -15,17 +15,18 @@ import { RewardsPage } from '../rewards/rewards';
   templateUrl: 'point.html',
 })
 export class PointPage {
+  userPoint = "";
+  
 
-  public press: number = 0;
-  public pan: number = 0;
-  public swipe: number = 0;
-  public tap: number = 0;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PointPage');
+    this.storage.get('userPoint').then((val) => {
+      this.userPoint = val;
+    });
   }
 
   toRewards(){
@@ -33,17 +34,6 @@ export class PointPage {
     console.log('ionViewDidLoad PointPage');
   }
 
-  pressEvent(e) {
-    this.press++
-  }
-  panEvent(e) {
-    this.pan++
-  }
-  swipeEvent(e) {
-    this.swipe++
-  }
-  tapEvent(e) {
-    this.tap++
-  }
+  
 
 }

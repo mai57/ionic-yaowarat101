@@ -17,29 +17,32 @@
   <ion-list>
 
 
-    <ion-item no-lines>
+    <ion-item no-lines style="text-align: center;">
       <img src="https://yaowarat101.net/image/logo_yellow.png" alt="">
     </ion-item>
 
+    <ion-item no-lines style="text-align: center;">
+    <p>{{errorUser}}</p>
+    </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
       </ion-label>
-      <ion-input type="text" value="" placeholder="อีเมล"></ion-input>
+      <ion-input [(ngModel)]="login.email" [ngModelOptions]="{standalone: true}" type="email" value="" placeholder="อีเมล"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
       </ion-label>
-      <ion-input type="password" value="" placeholder="รหัสผ่าน"></ion-input>
+      <ion-input [(ngModel)]="login.password" [ngModelOptions]="{standalone: true}" type="password" value="" placeholder="รหัสผ่าน"></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div padding>
-    <button ion-button block>Login</button>
+    <button (click)="loginBtn()" ion-button block>Login</button>
   </div>
 
 </ion-content>

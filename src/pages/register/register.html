@@ -19,40 +19,40 @@
       <ion-label>
         <ion-icon ios="ios-contact" md="md-contact"></ion-icon>
       </ion-label>
-      <ion-input type="text" value="" placeholder="ชื่อ-นามสกุล"></ion-input>
+      <ion-input [(ngModel)]="user.u_Name" type="text" value="" placeholder="ชื่อ-นามสกุล"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
       </ion-label>
-      <ion-input type="text" value="" placeholder="อีเมล"></ion-input>
+      <ion-input [(ngModel)]="user.u_Email" type="email" value="" placeholder="อีเมล"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
       </ion-label>
-      <ion-input type="password" value="" placeholder="รหัสผ่าน"></ion-input>
+      <ion-input [(ngModel)]="user.u_Password" type="password" value="" placeholder="รหัสผ่าน"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-key" md="md-key"></ion-icon>
       </ion-label>
-      <ion-input type="password" value="" placeholder="ยืนยันรหัสผ่าน"></ion-input>
+      <ion-input [(ngModel)]="confirmPassword" type="password" value="" placeholder="ยืนยันรหัสผ่าน"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-call" md="md-call"></ion-icon>
       </ion-label>
-      <ion-input type="text" value="" placeholder="เบอร์ติดต่อ"></ion-input>
+      <ion-input [(ngModel)]="user.u_Tel" type="text" value="" placeholder="เบอร์ติดต่อ" maxlength="10"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label><ion-icon ios="ios-transgender" md="md-transgender"></ion-icon></ion-label>
-        <ion-select placeholder="เพศ">
+        <ion-select [(ngModel)]="user.u_Gender" placeholder="เพศ">
           <ion-option value="Male" >Male</ion-option>
           <ion-option value="Female">Female</ion-option>
         </ion-select>
@@ -61,8 +61,11 @@
     <ion-item>
       <ion-label><ion-icon ios="ios-card" md="md-card"></ion-icon>
       </ion-label>
-      <ion-input type="text" value="" placeholder="ที่อยู่"></ion-input>
+      <ion-input [(ngModel)]="user.u_Address" type="text" value="" placeholder="ที่อยู่"></ion-input>
     </ion-item>
   </ion-list>
+  <div padding>
+    <button style="background-color: #ff0000; color:white;" (click)="save()" ion-button block>สมัครสมาชิก</button>
+  </div>
 
 </ion-content>

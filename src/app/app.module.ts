@@ -11,7 +11,7 @@ import { SearchProductFilterPipe } from '../pages/product/searchProductFilter.pi
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { CallNumber } from '@ionic-native/call-number';
-// import { WebStorageService } from 'angular-webstorage-service';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 import { AboutPage } from '../pages/about/about';
@@ -53,7 +53,8 @@ import { RewardsPage } from '../pages/rewards/rewards';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,7 +81,6 @@ import { RewardsPage } from '../pages/rewards/rewards';
     CallNumber,
     ProductService,
     UserService
-    
   ]
 })
 export class AppModule {}
