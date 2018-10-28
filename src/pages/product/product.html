@@ -9,6 +9,9 @@
     <ion-title>
       สิ้นค้า
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" *ngIf="userRole == 'admin'" (click)="toaddproduct()">ADD PRODUCT</button>
+    </ion-buttons>
   </ion-navbar>
 
   <ion-toolbar no-border-top>
@@ -35,19 +38,73 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="action-sheets-basic-page">
   <div [ngSwitch]="typproduct">
     <ion-list *ngSwitchCase="'necklace'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : categoryBy as testvalue ; let i=index">
-        <ion-thumbnail item-start (click)=showdata()>
+      <ion-card *ngFor="let product of products | productFilter : searchProductText : categoryBy as testvalue ; let i=index"
+        (click)="openMenu(product.p_Id,product,userId)" style="margin-top:5px; margin-bottom: 5px;">
+        <!-- <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
-        <h2>{{product.p_Id}}</h2>
-      </ion-item>
+        <h2>{{product.p_Id}} : {{product.p_Name}}</h2>
+        <p>sadsads</p> -->
+        <!-- <ion-buttons end>
+          <button ion-button small color="primary" >try</button>
+          <button ion-button small color="primary" >add</button>
+        </ion-buttons> -->
+
+        <ion-item style="padding: 0px; margin: 0px;">
+          
+            <ion-thumbnail item-start style="margin: 0px 16px 0px 0px;">
+              <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg" style="width: 80px; height: 80px;">
+            </ion-thumbnail>
+            
+              <ion-label style="margin: 0px 16px 0px 0px;">
+                  <!-- <ion-grid >
+                      <ion-row>
+                        <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                          This column will be 12 columns wide by default,
+                          9 columns at the small breakpoint,
+                          6 at the medium breakpoint, 4 at large, and 3 at xl.
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                          <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                            This column will be 12 columns wide by default,
+                            9 columns at the small breakpoint,
+                            6 at the medium breakpoint, 4 at large, and 3 at xl.
+                          </ion-col>
+                        </ion-row>
+                    </ion-grid> -->
+                    <h2>{{product.p_Name}}</h2>
+                    
+                          <ion-col col-5 >
+                              น้ำหนัก: {{product.p_Weight}} กรัม, ขนาด: {{product.p_Length}} นิ้ว, เปอร์เซนต์ทอง : {{product.p_PercentGold}} %
+                          </ion-col>
+                        
+            <!-- <p>น้ำหนัก: {{product.p_Weight}} กรัม, ขนาด: {{product.p_Length}} นิ้ว, เปอร์เซนต์ทอง : {{product.p_PercentGold}} %</p> -->
+            <p style="color : gold; font-size: 17px"><b>{{product.p_Price | number:'1.2-2'}} บาท</b></p>
+              </ion-label>
+              
+            
+            
+            <!-- <h2>{{product.p_Name}}</h2>
+            <p>November 5, 1955</p>
+            <p>November 5, 1955</p> -->
+         
+
+          <!-- <ion-thumbnail item-end style="margin: 0px 0px 0px 0px">
+            <button ion-button small color="primary" (click)="test()">try</button>
+            <button ion-button small color="primary">add</button>
+          </ion-thumbnail> -->
+        </ion-item>
+
+      </ion-card>
     </ion-list>
 
     <ion-list *ngSwitchCase="'rings'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'แหวน' as testvalue ; let i=index">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'แหวน' as testvalue ; let i=index"
+        (click)=showdata(product.p_Id)>
         <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
@@ -56,8 +113,9 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'bangle'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'กำไล' as testvalue ; let i=index">
-        <ion-thumbnail item-start >
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'กำไล' as testvalue ; let i=index"
+        (click)=showdata(product.p_Id)>
+        <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
         <h2>{{product.p_Id}}</h2>
@@ -65,7 +123,8 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'bracelets'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'สร้อยข้อมือ' as testvalue ; let i=index">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'สร้อยข้อมือ' as testvalue ; let i=index"
+        (click)=showdata(product.p_Id)>
         <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
@@ -74,7 +133,8 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'earring'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'ต่างหู' as testvalue ; let i=index">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'ต่างหู' as testvalue ; let i=index"
+        (click)=showdata(product.p_Id)>
         <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>
@@ -83,7 +143,8 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'pendant'">
-      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'จี้' as testvalue ; let i=index">
+      <ion-item *ngFor="let product of products | productFilter : searchProductText : 'จี้' as testvalue ; let i=index"
+        (click)=showdata(product.p_Id)>
         <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg">
         </ion-thumbnail>

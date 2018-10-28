@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { ProductService } from '../pages/product/product.serveice';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../pages/firstpage/user.service';
+import { CartService } from '../pages/cart/cart.service';
 
 //Filter
 import { SearchProductFilterPipe } from '../pages/product/searchProductFilter.pipe';
@@ -30,6 +31,10 @@ import { CouponPage } from '../pages/coupon/coupon';
 import { CreditPage } from '../pages/credit/credit';
 import { ProductPage } from '../pages/product/product';
 import { RewardsPage } from '../pages/rewards/rewards';
+import { AddproductPage } from '../pages/addproduct/addproduct';
+import { ProductdetailPage } from '../pages/productdetail/productdetail';
+import { CartPage } from '../pages/cart/cart';
+import { from } from 'rxjs/observable/from';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,10 @@ import { RewardsPage } from '../pages/rewards/rewards';
     CreditPage,
     ProductPage,
     RewardsPage,
-    SearchProductFilterPipe
+    AddproductPage,
+    ProductdetailPage,
+    SearchProductFilterPipe,
+    CartPage
     // WebStorageService
   ],
   imports: [
@@ -71,7 +79,10 @@ import { RewardsPage } from '../pages/rewards/rewards';
     CouponPage,
     CreditPage,
     ProductPage,
-    RewardsPage
+    RewardsPage,
+    AddproductPage,
+    ProductdetailPage,
+    CartPage
   ],
   providers: [
     StatusBar,
@@ -80,7 +91,8 @@ import { RewardsPage } from '../pages/rewards/rewards';
     InAppBrowser,
     CallNumber,
     ProductService,
-    UserService
+    UserService,
+    CartService
   ]
 })
 export class AppModule {}

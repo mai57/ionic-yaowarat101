@@ -18,15 +18,15 @@ import { FirstpagePage } from '../firstpage/firstpage';
 export class RegisterPage {
   // user: User ;
   user = new User();
-  
+
   confirmPassword = "";
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
-     private userService: UserService,
+    private userService: UserService,
     public alertCtrl: AlertController,
     public appCtrl: App
-    ) {
+  ) {
   }
 
   ionViewDidLoad() {
@@ -58,7 +58,7 @@ export class RegisterPage {
     // console.log(this.user);
   }
 
-  test(){
+  test() {
     console.log(this.user);
   }
 
