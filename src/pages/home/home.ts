@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { PointPage } from '../point/point';
 import { CouponPage } from '../coupon/coupon';
@@ -8,6 +8,7 @@ import { AboutPage } from '../about/about';
 import { ProductPage } from '../product/product';
 import { ContactPage } from '../contact/contact';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { CartPage } from '../cart/cart';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 export class HomePage {
 
   constructor(public navCtrl: NavController,private inAppBrowser: InAppBrowser) {
-
+      
   }
 
   toProfile(){
@@ -47,6 +48,10 @@ export class HomePage {
 
   toContact(){
     this.navCtrl.push(ContactPage);
+  }
+
+  tocart(){
+    this.navCtrl.push(CartPage);
   }
 
   OpenUrl(url:string) {

@@ -35,6 +35,7 @@ import { AddproductPage } from '../pages/addproduct/addproduct';
 import { ProductdetailPage } from '../pages/productdetail/productdetail';
 import { CartPage } from '../pages/cart/cart';
 import { from } from 'rxjs/observable/from';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { from } from 'rxjs/observable/from';
     AddproductPage,
     ProductdetailPage,
     SearchProductFilterPipe,
-    CartPage
+    CartPage,
+    EditprofilePage
     // WebStorageService
   ],
   imports: [
@@ -82,7 +84,8 @@ import { from } from 'rxjs/observable/from';
     RewardsPage,
     AddproductPage,
     ProductdetailPage,
-    CartPage
+    CartPage,
+    EditprofilePage
   ],
   providers: [
     StatusBar,

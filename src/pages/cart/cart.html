@@ -23,56 +23,44 @@
                 <div>ที่อยู่ในการจัดส่ง</div>
             </ion-col> 
             <ion-col center text-right>
-              <ion-note style="color: goldenrod">
+              <ion-note style="color: goldenrod" (click)="toeditprofile(user)">
                 แก้ไข
               </ion-note>
             </ion-col>
           </ion-row>
       </ion-item>
       <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a
-          DeLorean?! Whoa. This is heavy.</p>
+        <p><b>{{user.u_Name}}  โทร.{{user.u_Tel}}</b></p>
+        <p>{{user.u_Address}}</p>
       </ion-card-content>
     </ion-card>
 
-    <ion-card style="margin-top:10px">
+    <ion-card style="margin-top:10px" *ngFor="let cart of carts; let i = index">
 
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="https://yaowarat101.net/image/logo_red.png">
+      <ion-item >
+        <ion-thumbnail item-start >
+          <img src="https://yaowarat101.net/image/products/{{cart.p_Id}}.jpg" style="width: 80px; height: 80px;">
         </ion-thumbnail>
-        <h2>YAOWARAT 101</h2>
-        <p>November 5, 1955</p>
+        <h2>{{ cart.p_Name }}</h2>
+        <p>{{ cart.p_Price | number:'1.2-2' }}&nbsp;฿ </p>
+        <ion-icon ios="ios-add-circle" md="md-add-circle" (click)= "plusamount(cart,i)"></ion-icon>{{cart.p_Amount}}<ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="devalueamount(cart,i)"></ion-icon>
+        <ion-thumbnail item-end >
+            <p center text-right style="font-size: 20px" (click)="deleteCart(cart)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></p>
+          <p style="color : #ff0000; font-size: 17px;" center text-right><b>{{ cart.p_Price * cart.p_Amount | number:'1.2-2'}}&nbsp;฿</b></p>
+        </ion-thumbnail>
       </ion-item>
-
-      <img src="https://yaowarat101.net/image/content0{{number}}.jpg">
-
-      <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a
-          DeLorean?! Whoa. This is heavy.</p>
-      </ion-card-content>
-
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-            11h ago
-          </ion-note>
-        </ion-col>
-      </ion-row>
 
     </ion-card>
 
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+   
+    <ion-buttons end>
+      <button ion-button color="royal" >รวม {{ totalPrice | number:'1.2-2' }} ฿</button>
+      <button ion-button color="secondary"  (click)="proceedCheckout()">ชำระเงิน</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

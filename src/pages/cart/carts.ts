@@ -3,7 +3,7 @@ export class Cart {
     u_Id: number;
     p_Id: number;
     p_Name: string;
-    p_Amount: string;
+    p_Amount: number;
     p_Price: number;
   }
   

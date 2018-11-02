@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { AddproductPage } from '../addproduct/addproduct';
 import { ProductdetailPage } from '../productdetail/productdetail';
 import { CartService } from '../cart/cart.service';
+import { CartPage } from '../cart/cart';
 
 /**
  * Generated class for the ProductPage page.
@@ -147,14 +148,28 @@ export class ProductPage {
           handler: () => {
             if (this.userId != undefined) {
               // console.log(product , id);
-              this.cartService.post(product, id).subscribe(async res => {
-                const alert = this.alertCtrl.create({
-                  title: 'ตะกร้าสินค้า',
-                  subTitle: 'เพิ่มในตะกร้าสินค้าสำเร็จ',
-                  buttons: ['OK']
-                });
-                alert.present();
+              const alert = this.alertCtrl.create({
+                title: 'ตะกร้าสินค้า',
+                message: "คุณต้องการเพิ่มสินค้าลงตะกล้าหรือไม่",
+                buttons: [
+                  {
+                    text: 'Cancel',
+                    handler: () => {
+                      console.log('Disagree clicked');
+                    }
+                  },
+                  {
+                  text: 'OK',
+                  handler: () => {
+                    console.log('Agree clicked');
+                    this.cartService.post(product, id).subscribe(async res => {
+                      this.navCtrl.push(CartPage);
+                     });
+                  }
+                }]
               });
+              alert.present();
+              
             } else {
               const alert = this.alertCtrl.create({
                 title: 'Error..',

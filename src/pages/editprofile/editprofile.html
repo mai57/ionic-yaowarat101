@@ -1,0 +1,38 @@
+<!--
+  Generated template for the EditprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>editprofile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>ชื่อ-นามสกุล</ion-label>
+      <ion-input type="text" [(ngModel)]="user.u_Name" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>เบอร์โทรศัพ</ion-label>
+      <ion-input type="text" [(ngModel)]="user.u_Tel" maxlength="10"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ที่อยู่</ion-label>
+      <ion-input type="text" [(ngModel)]="user.u_Address"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="updateUser()">Save</button>
+  </div>
+
+</ion-content>
