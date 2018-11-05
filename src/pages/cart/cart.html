@@ -19,34 +19,38 @@
       <ion-item>
         <h2><b>ที่อยู่ในการจัดส่ง/ใบกำกับภาษี</b></h2>
         <ion-row>
-            <ion-col>       
-                <div>ที่อยู่ในการจัดส่ง</div>
-            </ion-col> 
-            <ion-col center text-right>
-              <ion-note style="color: goldenrod" (click)="toeditprofile(user)">
-                แก้ไข
-              </ion-note>
-            </ion-col>
-          </ion-row>
+          <ion-col>
+            <div>ที่อยู่ในการจัดส่ง</div>
+          </ion-col>
+          <ion-col center text-right>
+            <ion-note style="color: goldenrod" (click)="toeditprofile(user)">
+              แก้ไข
+            </ion-note>
+          </ion-col>
+        </ion-row>
       </ion-item>
       <ion-card-content>
-        <p><b>{{user.u_Name}}  โทร.{{user.u_Tel}}</b></p>
+        <p><b>{{user.u_Name}} โทร.{{user.u_Tel}}</b></p>
         <p>{{user.u_Address}}</p>
       </ion-card-content>
     </ion-card>
 
     <ion-card style="margin-top:10px" *ngFor="let cart of carts; let i = index">
 
-      <ion-item >
-        <ion-thumbnail item-start >
+      <ion-item>
+        <ion-thumbnail item-start>
           <img src="https://yaowarat101.net/image/products/{{cart.p_Id}}.jpg" style="width: 80px; height: 80px;">
         </ion-thumbnail>
         <h2>{{ cart.p_Name }}</h2>
         <p>{{ cart.p_Price | number:'1.2-2' }}&nbsp;฿ </p>
-        <ion-icon ios="ios-add-circle" md="md-add-circle" (click)= "plusamount(cart,i)"></ion-icon>{{cart.p_Amount}}<ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="devalueamount(cart,i)"></ion-icon>
-        <ion-thumbnail item-end >
-            <p center text-right style="font-size: 20px" (click)="deleteCart(cart)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></p>
-          <p style="color : #ff0000; font-size: 17px;" center text-right><b>{{ cart.p_Price * cart.p_Amount | number:'1.2-2'}}&nbsp;฿</b></p>
+        <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="plusamount(cart,i)"></ion-icon>{{cart.p_Amount}}<ion-icon
+          ios="ios-remove-circle" md="md-remove-circle" (click)="devalueamount(cart,i)"></ion-icon>
+        <ion-thumbnail item-end>
+          <p center text-right style="font-size: 20px" (click)="deleteCart(cart)">
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+          </p>
+          <p style="color : #ff0000; font-size: 17px;" center text-right><b>{{ cart.p_Price * cart.p_Amount |
+              number:'1.2-2'}}&nbsp;฿</b></p>
         </ion-thumbnail>
       </ion-item>
 
@@ -57,10 +61,10 @@
 
 <ion-footer>
   <ion-toolbar>
-   
+
     <ion-buttons end>
-      <button ion-button color="royal" >รวม {{ totalPrice | number:'1.2-2' }} ฿</button>
-      <button ion-button color="secondary"  (click)="proceedCheckout()">ชำระเงิน</button>
+      <button ion-button color="royal">รวม {{ totalPrice | number:'1.2-2' }} ฿</button>
+      <button ion-button color="secondary" (click)="proceedCheckout()">ชำระเงิน</button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>

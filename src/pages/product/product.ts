@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, App, ActionSheetController, AlertController } from 'ionic-angular';
 import { Product } from "../product/products";
 import { ProductService } from './product.serveice';
@@ -7,6 +7,7 @@ import { AddproductPage } from '../addproduct/addproduct';
 import { ProductdetailPage } from '../productdetail/productdetail';
 import { CartService } from '../cart/cart.service';
 import { CartPage } from '../cart/cart';
+// import { SESSION_STORAGE, WebStorageService } from "angular-webstorage-service";
 
 /**
  * Generated class for the ProductPage page.
@@ -43,7 +44,9 @@ export class ProductPage {
     public alertCtrl: AlertController) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
+    
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
@@ -56,6 +59,15 @@ export class ProductPage {
       this.userId = val;
       // console.log('Your age is', this.userRole);
     });
+  }
+
+  ionViewDidEnter(){
+    console.log('ionViewDidEnter tabs');
+    // this.getProducts();
+    // setTimeout(() => {
+    //   console.log(this.carts.length);
+    //   this.badges = this.carts.length;
+    // }, 3000);
   }
 
   getProducts(): void {

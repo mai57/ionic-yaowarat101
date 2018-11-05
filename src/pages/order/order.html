@@ -1,0 +1,59 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card style="margin-top:10px" *ngFor="let order of orderlist; let i = index">
+    <ion-item style="background-color: #ff000026">
+      <h2>คำสั่งซื้อเลขที่ : {{ order.o_Id }}</h2>
+      <p>รหัสลูกค้า : {{ order.u_Id }} {{ order.u_Name }}</p>
+    </ion-item>
+
+    <ion-item *ngFor="let product of orders | orderFilter : searchOrderText : order.o_Id as testvalue ; let i=index">
+      <ion-thumbnail item-start>
+        <img src="https://yaowarat101.net/image/products/{{ product.p_Id }}.jpg" style="width: 80px; height: 80px;">
+      </ion-thumbnail>
+      <h2>{{ product.p_Name }} <span class="fs"> น้ำหนัก </span>
+        <span class="fs" *ngIf="product.p_Weight > 1 && product.p_Weight < 15.2">{{product.p_Weight}}
+          กรัม({{(product.p_Weight * 1 / 3.8) | number:'1.0-2'}} สลึง)</span>
+        <span class="fs" *ngIf="product.p_Weight >= 15.2">{{product.p_Weight}} กรัม({{(product.p_Weight * 1 / 15.2) |
+          number:'1.0-2'}} บาท)</span>
+        <span class="fs" *ngIf="product.p_Weight <= 1">{{product.p_Weight}} กรัม</span></h2>
+      <p>ราคา : {{product.p_Price | number:'1.2-2'}} บาท</p>
+      <p>จำนวน : {{product.op_Amount}} ชิ้น</p>
+
+    </ion-item>
+    <ion-item>
+      <p style="color : #ff0000; font-size: 17px;" center text-right><b>ราคารวม {{order.o_Totalprice | number:'1.2-2'}}
+          บาท</b></p>
+
+    </ion-item>
+    <ion-item>
+      <ion-buttons start>
+        <button ion-button color="royal" small (click)="selectOrder(order.o_Id)">แจ้งชำระเงิน</button>
+        <button ion-button color="secondary" small>ดูการชำระเงิน</button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item *ngIf="userId == 'admin'">
+      <ion-buttons start>
+        <button ion-button color="royal" small>CONFIRM</button>
+        <button ion-button color="royal" small>REJECT</button>
+        <button ion-button color="secondary" small>UPDATE TRACKING</button>
+      </ion-buttons>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

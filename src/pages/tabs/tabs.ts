@@ -8,6 +8,7 @@ import { CartService } from '../cart/cart.service';
 import { UserService } from '../firstpage/user.service';
 import { User } from '../firstpage/user';
 import { Cart } from '../cart/carts';
+import { ProfilePage } from '../profile/profile';
 
 
 @Component({
@@ -19,6 +20,8 @@ export class TabsPage {
   tab2Root: any = AboutPage;
   tab3Root: any = ContactPage;
   tab4Root: any = CartPage;
+  tab5Root: any = ProfilePage;
+  
 
   userId: number;
   user = new User;
@@ -46,10 +49,10 @@ export class TabsPage {
 
   ionViewDidEnter(){
     console.log('ionViewDidEnter tabs');
-    setTimeout(() => {
-      console.log(this.carts.length);
-      this.badges = this.carts.length;
-    }, 3000);
+    // setTimeout(() => {
+    //   console.log(this.carts.length);
+    //   this.badges = this.carts.length;
+    // }, 3000);
   }
 
   ionViewWillEnter(){
@@ -65,7 +68,8 @@ export class TabsPage {
     this.cartService
       .getCarts(id)
       .subscribe(
-        carts => (this.carts = carts),
+        carts => (this.carts = carts
+          ,this.badges = this.carts.length),
         error => (this.error = error)
       )
     console.log(this.carts);

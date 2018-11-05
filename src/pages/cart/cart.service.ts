@@ -12,7 +12,7 @@ import { LinkApi } from '../../app/app.link-api';
 export class CartService {
   private cartsUrl = LinkApi.link; // URL to web api
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getCarts(id: number) {
     return this.http
       .get<Cart[]>(this.cartsUrl + 'carts/' + id)
@@ -25,7 +25,7 @@ export class CartService {
   //   );
   // }
 
-  save(cart: Cart, id:number): Observable<Cart> {
+  save(cart: Cart, id: number): Observable<Cart> {
     if (cart.p_Id) {
       console.log("already have this cart ");
       return this.http.put<Cart>(this.cartsUrl + 'carts/' + id, cart);
@@ -33,23 +33,23 @@ export class CartService {
     return this.http.post<Cart>(this.cartsUrl + 'carts/' + id, cart);
   }
 
-  deleteCart(cart: Cart, id:number) {
+  deleteCart(cart: Cart, id: number) {
 
-    return this.http.get(this.cartsUrl + 'cartsdelete/' + id +'/' + cart.p_Id).pipe(catchError(this.handleError));
+    return this.http.get(this.cartsUrl + 'cartsdelete/' + id + '/' + cart.p_Id).pipe(catchError(this.handleError));
   }
 
-  deleteCartAll(id:number) {
+  deleteCartAll(id: number) {
 
     return this.http.get(this.cartsUrl + 'cartsdeleteall/' + id).pipe(catchError(this.handleError));
   }
 
-  updateUser(id:number, user: User) {
+  updateUser(id: number, user: User) {
 
     return this.http.post(this.cartsUrl + 'useredit/id/' + id, user).pipe(catchError(this.handleError));
   }
 
   // Add new Cart
-  post(product: Product, id:number) {
+  post(product: Product, id: number) {
     // console.log("add cart" + id)
     // console.log(product)
     const headers = new Headers({
@@ -74,7 +74,7 @@ export class CartService {
       u_Tel: user.u_Tel,
       o_Totalprice: totalPrice
     }
-    
+
     return this.http.post(LinkApi.link + 'checkout/order/', param);
 
   }

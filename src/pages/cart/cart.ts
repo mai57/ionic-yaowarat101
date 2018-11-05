@@ -6,6 +6,7 @@ import { Cart } from './carts';
 import { User } from '../firstpage/user';
 import { UserService } from '../firstpage/user.service';
 import { EditprofilePage } from '../editprofile/editprofile';
+import { OrderPage } from '../order/order';
 
 /**
  * Generated class for the CartPage page.
@@ -107,28 +108,46 @@ export class CartPage {
     // console.log(this.user);
     // console.log(this.userId);
     // console.log(this.totalPrice)
-    if (this.userId != undefined) {
-      this.cartService.proceedAddtoCart(this.carts, this.user, this.totalPrice).subscribe(data => {
-        // console.log("this.user = " +  this.user.u_Id);
-        this.cartService.proceedAddtoCart2(this.carts, this.user).subscribe(res => {
-          // console.log("this.carts = " +  this.carts);
-          // this.cartService.deleteCartAll(this.userId).subscribe(resp => {
-          //   console.log(resp);
-          //   this.getCarts(this.userId);
-          //   alert("proceed to checkout successfully");
-          // });
-
-
-        })
-      })
-
-      this.cartService.deleteCartAll(this.userId).subscribe(async res => {
-        console.log("ssssssssss");
-      })
-
-    } else {
-      console.log("fffffffff");
-    }
+    let prompt = this.alertCtrl.create({
+      title: 'ชำระเงิน',
+      message: "คุณต้องการชำระเงินหรือไม่",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            console.log('Saved clicked');
+            if (this.userId != undefined) {
+              this.cartService.proceedAddtoCart(this.carts, this.user, this.totalPrice).subscribe(data => {
+                // console.log("this.user = " +  this.user.u_Id);
+                this.cartService.proceedAddtoCart2(this.carts, this.user).subscribe(res => {
+                  // console.log("this.carts = " +  this.carts);
+                  // this.cartService.deleteCartAll(this.userId).subscribe(resp => {
+                  //   console.log(resp);
+                  //   this.getCarts(this.userId);
+                  //   alert("proceed to checkout successfully");
+                  // });
+                  this.navCtrl.push(OrderPage);
+                })
+              })
+        
+              this.cartService.deleteCartAll(this.userId).subscribe(async res => {
+                console.log("ssssssssss");
+              })
+        
+            } else {
+              console.log("fffffffff");
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
 
   }
 

@@ -9,11 +9,11 @@ import { EditprofilePage } from '../editprofile/editprofile';
 //order
 import { Order } from '../../service/order';
 import { OrderService } from '../../service/order.service';
-import { OrderPage } from '../order/order';
+import { PaymentPage } from '../payment/payment';
 
 
 /**
- * Generated class for the ProfilePage page.
+ * Generated class for the OrderPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -21,11 +21,10 @@ import { OrderPage } from '../order/order';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html',
+  selector: 'page-order',
+  templateUrl: 'order.html',
 })
-export class ProfilePage {
-  
+export class OrderPage {
   userId = undefined;
   user = new User;
   userRole: string;
@@ -34,6 +33,8 @@ export class ProfilePage {
   //order
   orders = new Array<Order>();
   orderlist = new Array<Order>();
+  searchOrderText = "";
+  
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,15 +46,7 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
-    this.storage.get('userId').then((val) => {
-      this.userId = val;
-      this.getUser()
-    });
-  }
-
-  ionViewDidEnter(){
-    console.log('ionViewDidEnter ProfilePage');
+    console.log('ionViewDidLoad OrderPage');
     this.storage.get('userName').then((val) => {
       this.userName = val;
     });
@@ -78,10 +71,6 @@ export class ProfilePage {
     }, 3000);
   }
 
-  getUser(): void {
-    this.userService.getUser(this.userId).subscribe(user => (this.user = user[0]), error => (console.log(error)));
-  }
-
   getOrder(Id : number): void{
     this.orderService.getOrders(Id).subscribe(orders => (
       this.orders = orders,
@@ -99,34 +88,11 @@ export class ProfilePage {
     );
   }
 
-  toeditprofile(user: User) {
-    this.navCtrl.push(EditprofilePage, {
-      users: this.user
-    });
+  selectOrder(id: number): void {
+    this.navCtrl.push(PaymentPage,
+      {
+        payment: id
+      });
   }
 
-  toOrder(){
-    this.navCtrl.push(OrderPage);
-  }
-
-  async logout() {
-    // this.userName = null;
-    this.storage.remove('userName');
-    this.storage.remove('userId');
-    this.storage.remove('userRole');
-    this.storage.remove('userPoint');
-    let loading = this.loadingCtrl.create({
-      content: "กำลังออกจากระบบ..."
-    });
-
-    loading.present();
-    setTimeout(() => {
-      this.appCtrl.getRootNav().setRoot(FirstpagePage);
-    }, 1000);
-
-    setTimeout(() => {
-      loading.dismiss();
-    }, 3000);
-
-  }
 }

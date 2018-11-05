@@ -2,13 +2,17 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { ProductService } from '../pages/product/product.serveice';
 import { HttpClientModule } from '@angular/common/http';
+
+//service
+import { ProductService } from '../pages/product/product.serveice';
 import { UserService } from '../pages/firstpage/user.service';
 import { CartService } from '../pages/cart/cart.service';
+import { OrderService } from '../service/order.service'
 
 //Filter
 import { SearchProductFilterPipe } from '../pages/product/searchProductFilter.pipe';
+import { SearchOrderFilterPipe } from '../pages/order/searchOrderFilter.pipe'
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { CallNumber } from '@ionic-native/call-number';
@@ -19,9 +23,6 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirstpagePage } from '../pages/firstpage/firstpage';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -36,6 +37,12 @@ import { ProductdetailPage } from '../pages/productdetail/productdetail';
 import { CartPage } from '../pages/cart/cart';
 import { from } from 'rxjs/observable/from';
 import { EditprofilePage } from '../pages/editprofile/editprofile';
+import { OrderPage } from '../pages/order/order';
+import {PaymentPage } from '../pages/payment/payment';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 @NgModule({
   declarations: [
@@ -56,8 +63,11 @@ import { EditprofilePage } from '../pages/editprofile/editprofile';
     AddproductPage,
     ProductdetailPage,
     SearchProductFilterPipe,
+    SearchOrderFilterPipe,
     CartPage,
-    EditprofilePage
+    EditprofilePage,
+    OrderPage,
+    PaymentPage
     // WebStorageService
   ],
   imports: [
@@ -85,7 +95,9 @@ import { EditprofilePage } from '../pages/editprofile/editprofile';
     AddproductPage,
     ProductdetailPage,
     CartPage,
-    EditprofilePage
+    EditprofilePage,
+    OrderPage,
+    PaymentPage
   ],
   providers: [
     StatusBar,
@@ -95,7 +107,8 @@ import { EditprofilePage } from '../pages/editprofile/editprofile';
     CallNumber,
     ProductService,
     UserService,
-    CartService
+    CartService,
+    OrderService
   ]
 })
 export class AppModule {}
