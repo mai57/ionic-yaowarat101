@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 //service
 import { ProductService } from '../pages/product/product.serveice';
@@ -111,7 +112,8 @@ import { OtherPage } from '../pages/other/other';
     ProductService,
     UserService,
     CartService,
-    OrderService
+    OrderService,
+    Facebook
   ]
 })
 export class AppModule {}

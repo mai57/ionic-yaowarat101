@@ -4,9 +4,30 @@
       <img src="https://yaowarat101.net/image/logo_yellow.png" alt="" width="250px" style="margin-top: 200px; margin-bottom: 200px;">
     </ion-item>
     <ion-item  no-lines>
-        <button ion-button full color="royal" (click)="onCkickTest()" start><ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>&nbsp;&nbsp;<h3>Login with Facebook</h3></button>
+        <button ion-button full color="royal" (click)="toFacebookLogin()" start><ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>&nbsp;&nbsp;<h3>Login with Facebook</h3></button>
       </ion-item >
+
+      <!-- <ion-item  no-lines>
+        <div *ngIf="isLoggedIn">
+          <h2>Hi, {{users.name}} ({{users.email}})</h2>
+          
+          <p>
+            Gender: {{users.gender}}
+          </p>
+          <p>
+            <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
+          </p>
+          <pre>
+            {{users.id}}
+          </pre>
+          <pre>
+            {{users}}
+          </pre>
+        </div>
+      </ion-item > -->
   </ion-list>
+
+
 </ion-content>
 <!-- <div>
   <ion-list>

@@ -19,7 +19,7 @@ import { OrderPage } from '../pages/order/order';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = TabsPage;
+  rootPage:any = FirstpagePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,public statusBar: StatusBar,public splashScreen: SplashScreen) {

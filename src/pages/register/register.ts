@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 import { User } from './user';
 import { UserService } from '../../pages/firstpage/user.service'
 import { FirstpagePage } from '../firstpage/firstpage';
+
+
 /**
  * Generated class for the RegisterPage page.
  *
@@ -32,6 +34,10 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
     this.user = new User();
+    this.user.u_Name = this.navParams.get("u_Name");
+    this.user.u_Email = this.navParams.get("u_Email");
+    this.user.u_Password = this.navParams.get("u_Password");
+    this.confirmPassword = this.navParams.get("u_Password");
   }
 
   async save() {
