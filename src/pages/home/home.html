@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-      <!-- <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button> -->
     <ion-title>YAOWARAT 101</ion-title>
@@ -32,95 +32,151 @@
   <ion-grid>
     <ion-row justify-content-start>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toPoint()">
-            <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon> <br>
-            <p>แต้ม</p>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toCoupon()">
-            <ion-icon ios="ios-cash" md="md-cash"></ion-icon> <br>
-            <p>คูปอง</p>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toCredit()">
-            <ion-icon ios="ios-card" md="md-card"></ion-icon> <br>
-            <p>เครดิต</p>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toAbout()">
-            <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon> <br>
-            <p>ล่าสุด</p>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toProduct()">
-            <ion-icon ios="ios-basket" md="md-basket"></ion-icon> <br>
-            <p>ร้าน</p>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col col-4>
-        <ion-card>
+        <ion-card style="text-align: center;" (click)="toPoint()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-headset" md="md-headset"></ion-icon> <br>
-            <p>ติดต่อ</p>
+            <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              แต้ม
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toContact()">
-            <ion-icon ios="ios-alert" md="md-alert"></ion-icon> <br>
-            <p>ข้อมูล</p>
+        <ion-card style="text-align: center;" (click)="toCoupon()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              คูปอง
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="OpenUrl('https://www.facebook.com/YaowaratJewelry')">
-            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon> <br>
-            <p>Facebook</p>
+        <ion-card style="text-align: center;" (click)="toCredit()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-card" md="md-card"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              เครดิต
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="OpenUrl('https://www.instagram.com/yaowarat_roiet')">
-            <ion-icon ios="ios-globe" md="md-globe"></ion-icon> <br>
-            <p>Instagram</p>
+        <ion-card style="text-align: center;" (click)="toAbout()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              ล่าสุด
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="OpenUrl('https://yaowarat101.net')">
-            <ion-icon ios="ios-globe" md="md-globe"></ion-icon> <br>
-            <p>Website</p>
+        <ion-card style="text-align: center;" (click)="toProduct()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              ร้าน
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col col-4>
-        <ion-card>
-          <ion-item style="text-align: center;" (click)="toOther()">
-            <ion-icon ios="ios-apps" md="md-apps"></ion-icon> <br>
-            <p>Other</p>
+        <ion-card style="text-align: center;">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-headset" md="md-headset"></ion-icon>
           </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              ติดต่อ
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="toContact()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-alert" md="md-alert"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              ข้อมูล
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="OpenUrl('https://www.facebook.com/YaowaratJewelry')">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              Facebook
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="OpenUrl('https://www.instagram.com/yaowarat_roiet')">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-globe" md="md-globe"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              Instagram
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="OpenUrl('https://yaowarat101.net')">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-globe" md="md-globe"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              Website
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="toOther()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              Ring Sizer
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card style="text-align: center;" (click)="toOther()">
+          <ion-item style="text-align: center;">
+            <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon>
+          </ion-item>
+          <ion-card-content style="padding-left: 0px; padding-right: 0px;">
+            <p>
+              Gold Weight
+            </p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
 </ion-content>
-
