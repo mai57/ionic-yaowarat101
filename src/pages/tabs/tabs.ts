@@ -9,6 +9,7 @@ import { UserService } from '../firstpage/user.service';
 import { User } from '../firstpage/user';
 import { Cart } from '../cart/carts';
 import { ProfilePage } from '../profile/profile';
+import { NavParams, NavController } from 'ionic-angular';
 
 
 @Component({
@@ -28,17 +29,22 @@ export class TabsPage {
   carts: Cart[];
   error: any;
   badges = 0;
+  cart:boolean;
 
   constructor(
     private storage: Storage,
     private cartService: CartService,
-    private userService: UserService
+    private userService: UserService,
+    public navParams: NavParams,
+    public navCtrl: NavController
   ) {
 
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad tabs');
+    this.cart = this.navParams.get("cart");
+    // console.log(this.cart);
     this.storage.get('userId').then((val) => {
       this.userId = val;
       this.getCarts(this.userId);

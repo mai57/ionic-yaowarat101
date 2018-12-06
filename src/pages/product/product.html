@@ -14,6 +14,8 @@
     </ion-buttons>
   </ion-navbar>
 
+  <ion-searchbar [(ngModel)]="searchProductText" (ionCancel)="onCancel($event)"></ion-searchbar>
+
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="typproduct">
       <ion-segment-button value="necklace">
@@ -42,7 +44,7 @@
   <div [ngSwitch]="typproduct">
     <ion-list *ngSwitchCase="'necklace'">
       <ion-card *ngFor="let product of products | productFilter : searchProductText : categoryBy as testvalue ; let i=index"
-        (click)="openMenu(product.p_Id,product,userId)" style="margin-top:5px; margin-bottom: 5px;">
+        (click)="openMenu(product,product,userId)" style="margin-top:5px; margin-bottom: 5px;">
 
         <ion-item style="padding: 0px; margin: 0px;">
           <ion-thumbnail item-start style="margin: 0px 16px 0px 0px;">

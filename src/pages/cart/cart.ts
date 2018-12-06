@@ -167,8 +167,10 @@ export class CartPage {
           text: 'Ok',
           handler: data => {
             console.log('Ok clicked');
-            this.cartService.deleteCart(cart, this.userId).subscribe();
-            this.getCarts(this.userId);
+            this.cartService.deleteCart(cart, this.userId).subscribe(async res => {
+                this.navCtrl.setRoot(this.navCtrl.getActive().component);
+            });
+            // this.getCarts(this.userId);
           }
         }
       ]

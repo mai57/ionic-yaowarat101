@@ -9,6 +9,7 @@ import { ProductPage } from '../product/product';
 import { ContactPage } from '../contact/contact';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { CartPage } from '../cart/cart';
+import { OtherPage } from '../other/other';
 
 @Component({
   selector: 'page-home',
@@ -52,6 +53,10 @@ export class HomePage {
 
   tocart(){
     this.navCtrl.push(CartPage);
+  }
+
+  toOther(){
+    this.navCtrl.push(OtherPage);
   }
 
   OpenUrl(url:string) {

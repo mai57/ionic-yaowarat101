@@ -10,6 +10,8 @@ import { EditprofilePage } from '../editprofile/editprofile';
 import { Order } from '../../service/order';
 import { OrderService } from '../../service/order.service';
 import { OrderPage } from '../order/order';
+import { PointPage } from '../point/point';
+import { ContactPage } from '../contact/contact';
 
 
 /**
@@ -107,6 +109,13 @@ export class ProfilePage {
 
   toOrder(){
     this.navCtrl.push(OrderPage);
+  }
+  toPoint(){
+    this.navCtrl.push(PointPage);
+  }
+
+  toContact(){
+    this.navCtrl.push(ContactPage);
   }
 
   async logout() {

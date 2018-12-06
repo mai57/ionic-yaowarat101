@@ -12,6 +12,7 @@ import { LoginPage } from '../pages/login/login';
 import { ProductPage } from '../pages/product/product';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
+import { OrderPage } from '../pages/order/order';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,8 +26,10 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ProfilePage }
+      { title: 'Home', component: TabsPage },
+      { title: 'ล่าสุด', component: AboutPage },
+      { title: 'ตะกร้าสินค้า', component: OrderPage },
+      { title: 'เกี่ยวกับ', component: AboutPage },
     ];
 
   }

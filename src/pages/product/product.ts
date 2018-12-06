@@ -7,6 +7,7 @@ import { AddproductPage } from '../addproduct/addproduct';
 import { ProductdetailPage } from '../productdetail/productdetail';
 import { CartService } from '../cart/cart.service';
 import { CartPage } from '../cart/cart';
+import { TabsPage } from '../tabs/tabs';
 // import { SESSION_STORAGE, WebStorageService } from "angular-webstorage-service";
 
 /**
@@ -44,9 +45,9 @@ export class ProductPage {
     public alertCtrl: AlertController) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
-    
+
   }
-  
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
@@ -61,7 +62,7 @@ export class ProductPage {
     });
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     console.log('ionViewDidEnter tabs');
     // this.getProducts();
     // setTimeout(() => {
@@ -105,45 +106,7 @@ export class ProductPage {
           handler: () => {
             this.navCtrl.push(ProductdetailPage,
               {
-                products: this.products[productID - 1]
-              });
-          }
-        },
-        {
-          text: 'ลอง',
-          icon: !this.isIos ? 'images' : null,
-          handler: () => {
-            console.log('Play clicked');
-          }
-        },
-        {
-          text: 'เพิ่มในตะกร้า',
-          icon: !this.isIos ? 'cart' : null,
-          handler: () => {
-            console.log('Favorite clicked');
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
-          icon: !this.isIos ? 'close' : null,
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    let actionSheetUser = this.actionSheetCtrl.create({
-      title: 'Menu',
-      cssClass: 'action-sheets-basic-page',
-      buttons: [
-        {
-          text: 'View',
-          icon: !this.isIos ? 'eye' : null,
-          handler: () => {
-            this.navCtrl.push(ProductdetailPage,
-              {
-                products: this.products[productID - 1]
+                products: productID
               });
           }
         },
@@ -171,17 +134,90 @@ export class ProductPage {
                     }
                   },
                   {
-                  text: 'OK',
-                  handler: () => {
-                    console.log('Agree clicked');
-                    this.cartService.post(product, id).subscribe(async res => {
-                      this.navCtrl.push(CartPage);
-                     });
-                  }
-                }]
+                    text: 'OK',
+                    handler: () => {
+                      console.log('Agree clicked');
+                      this.cartService.post(product, id).subscribe(async res => {
+                        this.navCtrl.push(TabsPage);
+                      });
+                    }
+                  }]
               });
               alert.present();
-              
+
+            } else {
+              const alert = this.alertCtrl.create({
+                title: 'Error..',
+                subTitle: 'โปรดเข้าสู่ระบบ',
+                buttons: ['OK']
+              });
+              alert.present();
+            }
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: !this.isIos ? 'close' : null,
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    let actionSheetUser = this.actionSheetCtrl.create({
+      title: 'Menu',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        {
+          text: 'View',
+          icon: !this.isIos ? 'eye' : null,
+          handler: () => {
+            this.navCtrl.push(ProductdetailPage,
+              {
+                products: productID
+              });
+          }
+        },
+        {
+          text: 'ลอง',
+          icon: !this.isIos ? 'images' : null,
+          handler: () => {
+            console.log('Play clicked');
+          }
+        },
+        {
+          text: 'เพิ่มในตะกร้า',
+          icon: !this.isIos ? 'cart' : null,
+          handler: () => {
+            if (this.userId != undefined) {
+              // console.log(product , id);
+              const alert = this.alertCtrl.create({
+                title: 'ตะกร้าสินค้า',
+                message: "คุณต้องการเพิ่มสินค้าลงตะกล้าหรือไม่",
+                buttons: [
+                  {
+                    text: 'Cancel',
+                    handler: () => {
+                      console.log('Disagree clicked');
+                    }
+                  },
+                  {
+                    text: 'OK',
+                    handler: () => {
+                      console.log('Agree clicked');
+                      this.cartService.post(product, id).subscribe(async res => {
+                        this.navCtrl.push(TabsPage,
+                          {
+                            cart : true
+                          });
+                          // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+                      });
+                    }
+                  }]
+              });
+              alert.present();
+
             } else {
               const alert = this.alertCtrl.create({
                 title: 'Error..',

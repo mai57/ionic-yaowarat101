@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>payment</ion-title>
+    <ion-title>แจ้งชำระเงิน</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <ion-list>
 
+        <ion-item>
+            <ion-label >ช่องทางการชำระเงิน</ion-label>
+            <ion-select >
+              <ion-option value="Bank">โอน/ชำระผ่านช่องทางธนาคาร</ion-option>
+              <ion-option value="paypal" disabled>ชำระผ่านทาง paypal</ion-option>
+            </ion-select>
+          </ion-item>
+
+        <ion-item>
+          <ion-label >ยอดเงินการชำระ</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label >วันที่ชำระเงิน</ion-label>
+          <ion-datetime displayFormat="D MMM YYYY" min="1990-02" max="2010-10" [(ngModel)]="webkitReleased"></ion-datetime>
+          
+        </ion-item>
+        <ion-item>
+            <ion-label >เวลาชำระเงิน</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="parisTime"></ion-datetime>
+          </ion-item>
+      
+      </ion-list>
+      <div padding>
+          <button ion-button block (click)="updateUser()">Save</button>
+        </div>
 </ion-content>

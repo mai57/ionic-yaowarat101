@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
+        </button> -->
     <ion-title>YAOWARAT 101</ion-title>
     <!-- <ion-buttons start>
       <button ion-button (click)="toProfile()">
@@ -111,7 +111,16 @@
           </ion-item>
         </ion-card>
       </ion-col>
+      <ion-col col-4>
+        <ion-card>
+          <ion-item style="text-align: center;" (click)="toOther()">
+            <ion-icon ios="ios-apps" md="md-apps"></ion-icon> <br>
+            <p>Other</p>
+          </ion-item>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
 </ion-content>
+

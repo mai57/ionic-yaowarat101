@@ -41,6 +41,11 @@
 
     </ion-item>
     <ion-item>
+      <p style="color : #ff0000; font-size: 17px;" center text-left><b>ราคารวม {{order.o_Totalprice | number:'1.2-2'}}
+          บาท</b></p>
+
+    </ion-item>
+    <ion-item>
       <ion-buttons start>
         <button ion-button color="royal" small (click)="selectOrder(order.o_Id)">แจ้งชำระเงิน</button>
         <button ion-button color="secondary" small>ดูการชำระเงิน</button>

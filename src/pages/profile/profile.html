@@ -1,19 +1,157 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Profile</ion-title>
-    <ion-buttons end>
+    </button> -->
+    <ion-title>บัญชีของฉัน</ion-title>
+    <!-- <ion-buttons end>
       <button ion-button color="primary" (click)="logout()">Logout</button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
 
-<ion-content>
-  <ion-list no-lines>
-    <ion-item style="background-color: #ff000047">
+<ion-content style="background-color: whitesmoke">
+
+  <ion-item-group >
+    <!-- <ion-item-divider color="light">A</ion-item-divider> -->
+    <!-- <ion-item> -->
+    <ion-grid style="background-color: white">
+      <ion-row>
+        <ion-col col-3>
+          <ion-avatar item-start>
+            <img src="https://yaowarat101.net/image/logo_red.png">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-9>
+          <ion-row>
+            {{user.u_Name}}
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+              <div>
+                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{user.u_Email}}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+              <div>
+                <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{user.u_Tel}}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+              <div>
+                <ion-icon ios="ios-bus" md="md-bus"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{user.u_Address}}
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+    <!-- </ion-item> -->
+
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item (click)="toOrder()">
+      <ion-icon ios="ios-clipboard" md="md-clipboard" item-start></ion-icon>
+      รายการสั่งชื้อของฉัน
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toPoint()">
+      <ion-icon ios="ios-ribbon" md="md-ribbon" item-start></ion-icon>
+      แต้มของฉัน
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toeditprofile(user)">
+      <ion-icon ios="ios-settings" md="md-settings" item-start></ion-icon>
+      แก้ไขบัญชี
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toeditprofile(user)">
+        <ion-icon ios="ios-headset" md="md-headset" item-start></ion-icon>
+      ติดต่อ สอบถาม
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toContact()">
+        <ion-icon ios="ios-alert" md="md-alert" item-start></ion-icon>
+      เกี่ยวกับ บริษัทห้างทองเยาวราช จํากัด
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+      <ion-item-divider color="light" ></ion-item-divider>
+    <ion-item (click)="logout()">
+      ออกจากระบบ
+    </ion-item>
+  </ion-item-group>
+
+
+
+
+  <!-- <ion-list  no-lines>
+
+    <ion-item (click)="toOrder()">
+      <ion-icon ios="ios-ribbon" md="md-ribbon" item-start></ion-icon>
+      รายการสั่งชื้อของฉัน
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toPoint()">
+      <ion-icon ios="ios-ribbon" md="md-ribbon" item-start></ion-icon>
+      แต้มของฉัน
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-item (click)="toeditprofile(user)">
+      <ion-icon ios="ios-settings" md="md-settings" item-start></ion-icon>
+      แก้ไขบัญชี
+      <ion-note item-end>
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-note>
+    </ion-item>
+
+
+  </ion-list> -->
+
+
+  <!-- <ion-list no-lines>
+
+    <ion-item>
       <ion-row>
         <ion-col>
           <div>{{user.u_Name}}</div>
@@ -36,11 +174,11 @@
           </ion-note>
         </ion-col>
       </ion-row>
-      
-    </ion-item>
-    
-    
 
-  </ion-list>
+    </ion-item>
+
+
+
+  </ion-list> -->
 
 </ion-content>

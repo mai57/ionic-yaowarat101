@@ -57,13 +57,15 @@ export class OrderPage {
       this.userRole = val;
       if (this.userRole == 'admin') {
         this.userId = '1 or 1=1';
+        this.getOrder(this.userId);
       }
       else {
         this.storage.get('userId').then((val) => {
           this.userId = val;
-          this.getOrder(val);
+          this.getOrder(this.userId);
         });
       }
+      
     });
     setTimeout(() => {
       console.log(this.orders);

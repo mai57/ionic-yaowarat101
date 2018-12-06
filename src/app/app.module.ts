@@ -42,6 +42,7 @@ import {PaymentPage } from '../pages/payment/payment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { OtherPage } from '../pages/other/other';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CartPage,
     EditprofilePage,
     OrderPage,
-    PaymentPage
+    PaymentPage,
+    OtherPage
     // WebStorageService
   ],
   imports: [
@@ -97,7 +99,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CartPage,
     EditprofilePage,
     OrderPage,
-    PaymentPage
+    PaymentPage,
+    OtherPage
   ],
   providers: [
     StatusBar,
