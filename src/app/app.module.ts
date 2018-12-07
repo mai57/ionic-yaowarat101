@@ -44,6 +44,7 @@ import {PaymentPage } from '../pages/payment/payment';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OtherPage } from '../pages/other/other';
+import { ChatPage } from '../pages/chat/chat';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { OtherPage } from '../pages/other/other';
     EditprofilePage,
     OrderPage,
     PaymentPage,
+    ChatPage,
     OtherPage
     // WebStorageService
   ],
@@ -101,6 +103,7 @@ import { OtherPage } from '../pages/other/other';
     EditprofilePage,
     OrderPage,
     PaymentPage,
+    ChatPage,
     OtherPage
   ],
   providers: [

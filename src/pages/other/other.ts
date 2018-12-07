@@ -20,7 +20,7 @@ export class OtherPage {
   Url = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser,
-    platform: Platform, ) {
+    platform: Platform ) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
   }
