@@ -13,13 +13,16 @@ import { ProductPage } from '../pages/product/product';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { OrderPage } from '../pages/order/order';
+import { ChatPage } from '../pages/chat/chat';
+import { ChatforadminPage } from '../pages/chatforadmin/chatforadmin';
+import { ManagechatforadminPage } from '../pages/managechatforadmin/managechatforadmin'
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = TabsPage;
+  rootPage:any = FirstpagePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,public statusBar: StatusBar,public splashScreen: SplashScreen) {

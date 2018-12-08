@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage'
 import { AngularFireDatabase } from 'angularfire2/database'
 
 /**
- * Generated class for the ChatPage page.
+ * Generated class for the ChatforadminPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,10 +13,10 @@ import { AngularFireDatabase } from 'angularfire2/database'
 
 @IonicPage()
 @Component({
-  selector: 'page-chat',
-  templateUrl: 'chat.html',
+  selector: 'page-chatforadmin',
+  templateUrl: 'chatforadmin.html',
 })
-export class ChatPage {
+export class ChatforadminPage {
   isAndroid: boolean = false;
   isIos: boolean = false;
 
@@ -35,10 +35,11 @@ export class ChatPage {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
     
+    this.userName = this.navParams.get('userName');
     
-    this.storage.get('userName').then(val => {
-      this.userName = val
-    })
+    // this.storage.get('userName').then(val => {
+    //   this.userName = val
+    // })
 
     this.db.object('/chat').valueChanges().subscribe(data => {
       if(data == undefined) return;
@@ -60,9 +61,9 @@ export class ChatPage {
 
   sendMessage() {
     this.db.list('/chat').push({
-      username: this.userName,
+      username: 'Admin Yaowarat101',
       message: this.messageText,
-      sendto: 'admin'
+      sendto: this.userName
     })
     this.messageText = '';
   }

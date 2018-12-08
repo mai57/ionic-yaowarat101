@@ -7,14 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ติดต่อ</ion-title>
+    <ion-title>{{userName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div id="chatMessages">
+    <div class="message" *ngFor="let message of chatLogs">
+      <div *ngIf="message.username == userName || message.sendto == userName">
+          <div [class]="message.username == userName ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+            <div class="username">
+              {{ message.username }}
+            </div>
+            <div class="message">
+              {{ message.message }}
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer ion-fixed>
@@ -24,9 +37,9 @@
         <ion-icon ios="ios-camera" md="md-camera" color="primary"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-input [(ngModel)]="newmessage" placeholder="Write your message ..."></ion-input>
+    <ion-input [(ngModel)]="messageText" placeholder="Write your message ..."></ion-input>
     <ion-buttons end>
-      <button ion-button (click)="addmessage()">
+      <button ion-button (click)="sendMessage()">
         <ion-icon ios="ios-send" md="md-send" color="primary"></ion-icon>
       </button>
     </ion-buttons>

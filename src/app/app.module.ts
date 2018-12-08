@@ -45,6 +45,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OtherPage } from '../pages/other/other';
 import { ChatPage } from '../pages/chat/chat';
+import { ChatforadminPage } from '../pages/chatforadmin/chatforadmin';
+import { ManagechatforadminPage } from '../pages/managechatforadmin/managechatforadmin';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+
+var fireConfig = {
+  apiKey: "AIzaSyBz_UC_JSIemRFrI8buCnh-sLVEEb_5ACk",
+  authDomain: "ionic-yaowarat-chat.firebaseapp.com",
+  databaseURL: "https://ionic-yaowarat-chat.firebaseio.com",
+  projectId: "ionic-yaowarat-chat",
+  storageBucket: "ionic-yaowarat-chat.appspot.com",
+  messagingSenderId: "948509231135"
+};
+
 
 
 @NgModule({
@@ -72,6 +89,8 @@ import { ChatPage } from '../pages/chat/chat';
     OrderPage,
     PaymentPage,
     ChatPage,
+    ChatforadminPage,
+    ManagechatforadminPage,
     OtherPage
     // WebStorageService
   ],
@@ -79,7 +98,9 @@ import { ChatPage } from '../pages/chat/chat';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(fireConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -104,6 +125,8 @@ import { ChatPage } from '../pages/chat/chat';
     OrderPage,
     PaymentPage,
     ChatPage,
+    ChatforadminPage,
+    ManagechatforadminPage,
     OtherPage
   ],
   providers: [

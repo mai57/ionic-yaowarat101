@@ -11,6 +11,8 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 import { CartPage } from '../cart/cart';
 import { OtherPage } from '../other/other';
 import { ChatPage } from '../chat/chat';
+import { Storage } from '@ionic/storage'
+import { ManagechatforadminPage } from '../managechatforadmin/managechatforadmin';
 
 @Component({
   selector: 'page-home',
@@ -21,14 +23,19 @@ import { ChatPage } from '../chat/chat';
 export class HomePage {
   isAndroid: boolean = false;
   isIos: boolean = false;
+  userRole: string = 'user';
   Url = "";
 
   constructor(public navCtrl: NavController,
     private inAppBrowser: InAppBrowser,
     platform: Platform,
-    public appCtrl: App) {
+    public appCtrl: App,
+    private storage: Storage) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
+    this.storage.get('userRole').then(val => {
+      this.userRole = val
+    })
   }
 
 
@@ -57,7 +64,13 @@ export class HomePage {
   }
 
   toChat(){
-    this.appCtrl.getRootNav().push(ChatPage);
+    if(this.userRole == 'user'){
+      this.appCtrl.getRootNav().push(ChatPage);
+    }
+    else if(this.userRole == 'admin'){
+      this.appCtrl.getRootNav().push(ManagechatforadminPage);
+    }
+    
     // this.navCtrl.push(ChatPage);
   }
 
