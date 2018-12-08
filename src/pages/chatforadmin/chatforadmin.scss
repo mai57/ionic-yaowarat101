@@ -8,13 +8,31 @@ page-chatforadmin {
         border-radius: 3px;
     }
 
+    .timeright {
+        font-weight: bold;
+        font-size: 80%;
+        float: right;
+        margin-top: 32px;
+        color: #bbbbbb;
+    }
+
+    .timeleft {
+        font-weight: bold;
+        font-size: 80%;
+        float: left;
+        margin-top: 32px;
+        color: #bbbbbb;
+    }
+
     .username {
         font-weight: bold;
         font-size: 80%;
+        text-shadow: 1px 1px black;
+        letter-spacing: 1px;
     }
 
     .message {
-        font-size: 120%;
+        font-size: 100%;
     }
 
     .message:after {

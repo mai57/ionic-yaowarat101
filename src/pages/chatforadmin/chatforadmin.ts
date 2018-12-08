@@ -46,6 +46,9 @@ export class ChatforadminPage {
       this.chatLogs = Object.keys(data).map(key => {
         return data[key]
       })
+      this.chatLogs.sort(function(a,b) {
+        return Date.parse(a.time) - Date.parse(b.time)
+      })
     })
 
   }
@@ -60,10 +63,14 @@ export class ChatforadminPage {
 
 
   sendMessage() {
-    this.db.list('/chat').push({
+    let t = new Date(Date.now())
+    let tempname = 'Admin Yaowarat101 ' + t.toString()
+    this.db.list('/chat').set(tempname,{
       username: 'Admin Yaowarat101',
       message: this.messageText,
-      sendto: this.userName
+      sendto: this.userName,
+      time: t.toString(),
+      read: false
     })
     this.messageText = '';
   }

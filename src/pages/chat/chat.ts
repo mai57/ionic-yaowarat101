@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform, ActionSheetController, D
 
 import { Storage } from '@ionic/storage'
 import { AngularFireDatabase } from 'angularfire2/database'
+import { Time } from '@angular/common';
 
 /**
  * Generated class for the ChatPage page.
@@ -45,6 +46,11 @@ export class ChatPage {
       this.chatLogs = Object.keys(data).map(key => {
         return data[key]
       })
+      this.chatLogs.sort(function(a,b) {
+        return Date.parse(a.time) - Date.parse(b.time)
+      })
+
+      // console.log(this.chatLogs)
     })
 
   }
@@ -59,12 +65,18 @@ export class ChatPage {
 
 
   sendMessage() {
-    this.db.list('/chat').push({
+    let t = new Date(Date.now())
+    // console.log(new Date("Sat Dec 08 2018 13:53:42 GMT+0700 (Indochina Time)"))
+    let tempname = this.userName + ' ' + t.toString()
+    this.db.list('/chat').set(tempname,{
       username: this.userName,
       message: this.messageText,
-      sendto: 'admin'
+      sendto: 'admin',
+      time: t.toString(),
+      read: false
     })
     this.messageText = '';
+    // console.log(t)
   }
 
 

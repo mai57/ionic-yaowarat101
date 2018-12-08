@@ -32,6 +32,9 @@ export class ManagechatforadminPage {
         this.listChat = Object.keys(data).map(key => {
           return data[key]
         })
+        this.listChat.sort(function(a,b) {
+          return Date.parse(a.time) - Date.parse(b.time)
+        })
         this.listChat.reverse()
         this.listChat = this.listChat.filter((listChat, index, self) => 
           index === self.findIndex((t) => (
@@ -43,9 +46,12 @@ export class ManagechatforadminPage {
 
   }
 
-  onclickChat(userName) {
+  onclickChat(chat) {
+    let path = chat.username + ' ' + chat.time
+    this.db.list('/chat').update(path, {read: true})
+
     this.navCtrl.push(ChatforadminPage, {
-      userName: userName
+      userName: chat.username
     })
 
   }
