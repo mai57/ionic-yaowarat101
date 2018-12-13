@@ -6,6 +6,8 @@ import { AngularFireDatabase } from 'angularfire2/database'
 
 import { Camera, CameraOptions } from '@ionic-native/camera'
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 /**
  * Generated class for the ChatforadminPage page.
  *
@@ -35,7 +37,8 @@ export class ChatforadminPage {
     public actionChat: ActionSheetController, 
     private storage: Storage,
     private db: AngularFireDatabase,
-    private camera: Camera) {
+    private camera: Camera,
+    private _DomSanitizationService: DomSanitizer) {
 
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
