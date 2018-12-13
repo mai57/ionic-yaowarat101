@@ -8,6 +8,7 @@ import { ProductdetailPage } from '../productdetail/productdetail';
 import { CartService } from '../cart/cart.service';
 import { CartPage } from '../cart/cart';
 import { TabsPage } from '../tabs/tabs';
+import { TryproductPage } from '../tryproduct/tryproduct';
 // import { SESSION_STORAGE, WebStorageService } from "angular-webstorage-service";
 
 /**
@@ -35,6 +36,10 @@ export class ProductPage {
   userRole = "";
   userId = "";
 
+  listTryproduct = [];
+  counttry = 0;
+  tryproduct1: Product;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     platform: Platform,
@@ -42,7 +47,8 @@ export class ProductPage {
     private storage: Storage,
     public actionSheetCtrl: ActionSheetController,
     private cartService: CartService,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public appCtrl: App) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
 
@@ -183,7 +189,45 @@ export class ProductPage {
           text: 'ลอง',
           icon: !this.isIos ? 'images' : null,
           handler: () => {
+            if (this.listTryproduct.length < 5) {
+              this.listTryproduct.push({ p_Id: product.p_Id, p_Name: product.p_Name });
+            }
+
+            let text = "";
+            this.listTryproduct.forEach(data => {
+              text += "<div>";
+              text += "(" + data.p_Id + ")" + data.p_Name;
+              text += "</div>";
+            });
+
+            const alert = this.alertCtrl.create({
+              title: 'ลองสินค้า',
+              message: "คุณต้องการลอง" + text ,
+              buttons: [
+                {
+                  text: 'เลือกต่อ',
+                  handler: () => {
+                    // this.counttry++
+                    // console.log(this.counttry);
+                    console.log(this.listTryproduct);
+                  }
+                },
+                {
+                  text: 'ไปลองสินค้า',
+                  handler: () => {
+                    console.log('Agree clicked');
+                    this.cartService.post(product, id).subscribe(async res => {
+                      this.appCtrl.getRootNav().push(TryproductPage,{
+                        listTryproduct : this.listTryproduct
+                      });
+                    });
+                  }
+                }]
+            });
+            alert.present();
+
             console.log('Play clicked');
+
           }
         },
         {
@@ -209,9 +253,9 @@ export class ProductPage {
                       this.cartService.post(product, id).subscribe(async res => {
                         this.navCtrl.push(TabsPage,
                           {
-                            cart : true
+                            cart: true
                           });
-                          // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+                        // this.navCtrl.setRoot(this.navCtrl.getActive().component);
                       });
                     }
                   }]

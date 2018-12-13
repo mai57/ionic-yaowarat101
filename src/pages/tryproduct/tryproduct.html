@@ -1,0 +1,58 @@
+<!--
+  Generated template for the TryproductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>tryproduct</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="takePhoto()">
+        <span ion-text color="primary">
+          <ion-icon ios="ios-camera" md="md-camera" style="font-size: 30px;"></ion-icon>
+        </span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="no-scroll">
+  <p align="center"><img src="{{ myphoto }}"></p>
+  
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 100%">
+            <div class="map-div"></div>
+          </ion-scroll>
+        
+    </ion-toolbar>
+    
+  
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>สินค้า</ion-label>
+      <ion-select [(ngModel)]="product">
+        <ion-option value="สร้อยคอ">สร้อยคอ</ion-option>
+        <ion-option value="แหวน">แหวน</ion-option>
+        <ion-option value="กำไล">กำไล</ion-option>
+        <ion-option value="สร้อยข้อมือ">สร้อยข้อมือ</ion-option>
+        <ion-option value="ต่างหู">ต่างหู</ion-option>
+        <ion-option value="จี้">จี้</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+
+  <!-- <ion-grid>
+        <ion-row no-padding no-margin>
+            <ion-col col-12 no-padding>
+                <button ion-button full><ion-icon ios="ios-camera" md="md-camera" style="zoom:2.0;"></ion-icon>Button 3</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+</ion-footer>

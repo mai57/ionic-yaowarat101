@@ -50,6 +50,10 @@ import { ManagechatforadminPage } from '../pages/managechatforadmin/managechatfo
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { TryproductPage } from '../pages/tryproduct/tryproduct';
+
+//camera
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Camera } from '@ionic-native/camera'
 import { IonicImageViewerModule } from 'ionic-img-viewer'
@@ -94,6 +98,7 @@ var fireConfig = {
     ChatPage,
     ChatforadminPage,
     ManagechatforadminPage,
+    TryproductPage,
     OtherPage
     // WebStorageService
   ],
@@ -131,6 +136,7 @@ var fireConfig = {
     ChatPage,
     ChatforadminPage,
     ManagechatforadminPage,
+    TryproductPage,
     OtherPage
   ],
   providers: [

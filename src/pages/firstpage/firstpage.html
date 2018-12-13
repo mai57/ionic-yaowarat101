@@ -1,13 +1,13 @@
-<ion-content class="no-scroll">
-  <ion-list>
-    <ion-item style="text-align: center; background-color: red;">
-      <img src="https://yaowarat101.net/image/logo_yellow.png" alt="" width="250px" style="margin-top: 200px; margin-bottom: 200px;">
+<ion-content class="no-scroll" style="background: red;">
+  <ion-list no-lines>
+    <ion-item style="text-align: center;height: 100%; background-color: red">
+      <img src="https://yaowarat101.net/image/logo_yellow.png" alt="" width="250px" style="margin-top:50%; margin-bottom: 100%;">
     </ion-item>
-    <ion-item  no-lines>
+    <!-- <ion-item  no-lines>
         <button ion-button full color="royal" (click)="toFacebookLogin()" start><ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>&nbsp;&nbsp;<h3>Login with Facebook</h3></button>
-      </ion-item >
+      </ion-item > -->
 
-      <!-- <ion-item  no-lines>
+    <!-- <ion-item  no-lines>
         <div *ngIf="isLoggedIn">
           <h2>Hi, {{users.name}} ({{users.email}})</h2>
           
@@ -42,6 +42,13 @@
 
 
 <ion-footer>
+  <ion-toolbar>
+    <ion-item no-lines>
+      <button ion-button full color="royal" (click)="toFacebookLogin()" start>
+        <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>&nbsp;&nbsp;<h3>Login with Facebook</h3>
+      </button>
+    </ion-item>
+  </ion-toolbar>
   <ion-toolbar>
     <ion-buttons start>
       <button ion-button color="royal" round (click)="toLogin()" start>Login</button>

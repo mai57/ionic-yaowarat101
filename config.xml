@@ -89,6 +89,11 @@
         <variable name="APP_ID" value="2230137083687285" />
         <variable name="APP_NAME" value="yaowarat101" />
     </plugin>
-    <engine name="android" spec="6.3.0" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
+    <engine name="android" spec="6.3.0" />
+<<<<<<< HEAD
+    <plugin name="cordova-plugin-camera" spec="4.0.3" />
+=======
+    <engine name="ios" spec="4.5.5" />
+>>>>>>> ba4f3c1c1c51a9c29f505efccb08bea0c11ae63e
 </widget>

@@ -32,16 +32,20 @@
     "angularfire2": "^5.1.1",
     "call-number": "1.0.1",
     "cordova-android": "6.3.0",
+<<<<<<< HEAD
+=======
+    "cordova-ios": "4.5.5",
+>>>>>>> ba4f3c1c1c51a9c29f505efccb08bea0c11ae63e
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-facebook4": "3.2.0",
+    "cordova-plugin-facebook4": "^3.2.0",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.3.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "cordova-sqlite-storage": "^2.5.0",
+    "cordova-sqlite-storage": "^2.5.2",
     "firebase": "^5.7.0",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
@@ -64,7 +68,8 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-facebook4": {
         "APP_ID": "2230137083687285",
-        "APP_NAME": "yaowarat101"
+        "APP_NAME": "yaowarat101",
+        "FACEBOOK_ANDROID_SDK_VERSION": "4.38.1"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
@@ -78,7 +83,8 @@
       "cordova-plugin-camera": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
