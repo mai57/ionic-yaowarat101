@@ -23,7 +23,7 @@ import { TryproductPage } from '../pages/tryproduct/tryproduct';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = FirstpagePage;
+  rootPage:any = ProductPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,public statusBar: StatusBar,public splashScreen: SplashScreen) {

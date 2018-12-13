@@ -4,6 +4,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Product } from "../product/products";
 import { ProductService } from '../product/product.serveice';
+import { DomSanitizer } from '@angular/platform-browser';
 /**
  * Generated class for the TryproductPage page.
  *
@@ -27,7 +28,8 @@ export class TryproductPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private camera: Camera,
-    private productService: ProductService,) {
+    private productService: ProductService,
+    private _DomSanitizationService: DomSanitizer) {
   }
 
   ionViewDidLoad() {
@@ -49,9 +51,11 @@ export class TryproductPage {
   takePhoto() {
     const options: CameraOptions = {
       quality: 70,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
     }
 
     this.camera.getPicture(options).then((imageData) => {

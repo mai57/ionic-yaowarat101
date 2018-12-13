@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>tryproduct</ion-title>
+    <ion-title>ลองสินค้า</ion-title>
     <ion-buttons end>
       <button ion-button (click)="takePhoto()">
         <span ion-text color="primary">
@@ -20,22 +20,23 @@
 </ion-header>
 
 
-<ion-content class="no-scroll">
-  <p align="center"><img src="{{ myphoto }}"></p>
+<ion-content class="no-scroll" style="background-color: whitesmoke;">
+
+  <p align="center"><img style="height: 400px; width: 300px;" [src]="_DomSanitizationService.bypassSecurityTrustUrl(myphoto)"></p>
   
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar>
-        <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 100%">
-            <div class="map-div"></div>
-          </ion-scroll>
-        
-    </ion-toolbar>
-    
-  
   <ion-toolbar>
-    <ion-item>
+    <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 100%">
+      <div class="map-div"></div>
+    </ion-scroll>
+
+  </ion-toolbar>
+
+
+  <ion-toolbar>
+    <ion-item no-lines>
       <ion-label>สินค้า</ion-label>
       <ion-select [(ngModel)]="product">
         <ion-option value="สร้อยคอ">สร้อยคอ</ion-option>
