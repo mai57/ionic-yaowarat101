@@ -26,7 +26,7 @@
         >
           <div class="username">{{ message.username }}</div>
           <div class="message" *ngIf="message.messageType != 'image'">{{ message.message }}</div>
-          <div class="message" *ngIf="message.messageType == 'image'"><img style="width:100px; height:100px" src="{{ message.message }}" imageViewer></div>
+          <div class="message" *ngIf="message.messageType == 'image'"><img style="width:100px; height:100px" [src]="_DomSanitizationService.bypassSecurityTrustUrl(message.message)" imageViewer></div>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
       *ngIf="!base64Image"
     ></ion-input>
     <div *ngIf="base64Image">
-        <img style="width:100px; height:100px" src="{{ base64Image }}">
+        <img style="width:100px; height:100px" [src]="_DomSanitizationService.bypassSecurityTrustUrl(message.message)">
         <button style="vertical-align: top;" *ngIf="base64Image" ion-button (click)="clearImage()">
             <ion-icon ios="ios-close" md="md-close"></ion-icon>
           </button>
