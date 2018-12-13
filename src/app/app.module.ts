@@ -54,8 +54,6 @@ import { TryproductPage } from '../pages/tryproduct/tryproduct';
 
 //camera
 import { Camera, CameraOptions } from '@ionic-native/camera';
-
-import { Camera } from '@ionic-native/camera'
 import { IonicImageViewerModule } from 'ionic-img-viewer'
 
 

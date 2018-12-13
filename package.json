@@ -1,5 +1,5 @@
 {
-  "name": "yaowaratbata1",
+  "name": "Yaowarat101",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -32,10 +32,7 @@
     "angularfire2": "^5.1.1",
     "call-number": "1.0.1",
     "cordova-android": "6.3.0",
-<<<<<<< HEAD
-=======
     "cordova-ios": "4.5.5",
->>>>>>> ba4f3c1c1c51a9c29f505efccb08bea0c11ae63e
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook4": "^3.2.0",
