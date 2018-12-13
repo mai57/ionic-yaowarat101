@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, Platform, ActionSheetController, D
 import { Storage } from '@ionic/storage'
 import { AngularFireDatabase } from 'angularfire2/database'
 import { Time } from '@angular/common';
+import { Camera, CameraOptions } from '@ionic-native/camera'
 
 /**
  * Generated class for the ChatPage page.
@@ -26,12 +27,15 @@ export class ChatPage {
   s;
   chatLogs = []
 
+  base64Image: string = '';
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public platform: Platform,
     public actionChat: ActionSheetController, 
     private storage: Storage,
-    private db: AngularFireDatabase) {
+    private db: AngularFireDatabase,
+    private camera: Camera) {
 
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
@@ -73,10 +77,54 @@ export class ChatPage {
       message: this.messageText,
       sendto: 'admin',
       time: t.toString(),
-      read: false
+      read: false,
+      messageType: this.base64Image ? 'image':'text'
     })
     this.messageText = '';
+    this.base64Image = '';
     // console.log(t)
+  }
+
+  clearImage() {
+    this.messageText = '';
+    this.base64Image = '';
+  }
+
+  takePicture(){
+
+    this.camera.getPicture({
+      quality: 50,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.messageText = this.base64Image
+    }, (err) => {
+        console.log(err);
+    });
+  }
+
+
+  loadPicture(){
+
+    this.camera.getPicture({
+      quality: 50,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.messageText = this.base64Image
+    }, (err) => {
+        console.log(err);
+    });
   }
 
 
@@ -125,6 +173,7 @@ export class ChatPage {
           icon: !this.isIos ? 'camera' : null,
           handler: () => {
             console.log("ถ่ายรูป");
+            this.takePicture()
           }
         },
         {
@@ -132,6 +181,7 @@ export class ChatPage {
           icon: !this.isIos ? 'images' : null,
           handler: () => {
             console.log("เลือกรูป");
+            this.loadPicture();
           }
         },
         {

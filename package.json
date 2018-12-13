@@ -21,6 +21,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/call-number": "^4.16.0",
+    "@ionic-native/camera": "^4.18.0",
     "@ionic-native/core": "~4.15.0",
     "@ionic-native/facebook": "^4.18.0",
     "@ionic-native/in-app-browser": "^4.16.0",
@@ -31,6 +32,7 @@
     "angularfire2": "^5.1.1",
     "call-number": "1.0.1",
     "cordova-android": "6.3.0",
+    "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook4": "3.2.0",
     "cordova-plugin-inappbrowser": "^3.0.0",
@@ -42,6 +44,7 @@
     "cordova-sqlite-storage": "^2.5.0",
     "firebase": "^5.7.0",
     "ionic-angular": "3.9.2",
+    "ionic-img-viewer": "^2.9.0",
     "ionicons": "3.0.0",
     "mx.ferreyra.callnumber": "0.0.2",
     "rxjs": "5.5.11",
@@ -71,7 +74,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "call-number": {}
+      "call-number": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android"

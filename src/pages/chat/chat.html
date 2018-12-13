@@ -26,7 +26,8 @@
           "
         >
           <div class="username">{{ message.username }}</div>
-          <div class="message">{{ message.message }}</div>
+          <div class="message" *ngIf="message.messageType != 'image'">{{ message.message }}</div>
+          <div class="message" *ngIf="message.messageType == 'image'"><img style="width:100px; height:100px" src="{{ message.message }}" imageViewer></div>
         </div>
       </div>
     </div>
@@ -36,6 +37,7 @@
 <ion-footer ion-fixed>
   <ion-toolbar color="white">
     <ion-buttons start>
+        
       <button ion-button (click)="OpenImage()">
         <ion-icon ios="ios-camera" md="md-camera" color="primary"></ion-icon>
       </button>
@@ -43,7 +45,14 @@
     <ion-input
       [(ngModel)]="messageText"
       placeholder="Write your message ..."
+      *ngIf="!base64Image"
     ></ion-input>
+    <div *ngIf="base64Image">
+      <img style="width:100px; height:100px" src="{{ base64Image }}">
+      <button style="vertical-align: top;" *ngIf="base64Image" ion-button (click)="clearImage()">
+          <ion-icon ios="ios-close" md="md-close"></ion-icon>
+        </button>
+    </div>
     <ion-buttons end>
       <button ion-button (click)="sendMessage()">
         <ion-icon ios="ios-send" md="md-send" color="primary"></ion-icon>

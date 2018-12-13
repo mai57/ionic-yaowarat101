@@ -13,7 +13,8 @@
     <ion-item *ngIf="chat.username != 'Admin Yaowarat101'" (click)="onclickChat(chat)">
       <ion-avatar item-start> <ion-icon name="contact" style="font-size: 50px"></ion-icon> </ion-avatar>
       <h2>{{chat.username}}</h2>
-      <p>{{chat.message}} - {{chat.time | date:'shortTime'}} <ion-icon *ngIf="chat.read == false" style="color:red;" name="information-circle"></ion-icon></p>
+      <p *ngIf="chat.messageType != 'image'">{{chat.message}} - {{chat.time | date:'shortTime'}} <ion-icon *ngIf="chat.read == false" style="color:red;" name="information-circle"></ion-icon></p>
+      <p *ngIf="chat.messageType == 'image'">ส่งรูปภาพ - {{chat.time | date:'shortTime'}} <ion-icon *ngIf="chat.read == false" style="color:red;" name="information-circle"></ion-icon></p>
     </ion-item>
   </ion-card>
   

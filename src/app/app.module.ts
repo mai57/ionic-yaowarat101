@@ -51,6 +51,9 @@ import { ManagechatforadminPage } from '../pages/managechatforadmin/managechatfo
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { Camera } from '@ionic-native/camera'
+import { IonicImageViewerModule } from 'ionic-img-viewer'
+
 
 
 var fireConfig = {
@@ -100,7 +103,8 @@ var fireConfig = {
     HttpClientModule,
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(fireConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -139,7 +143,8 @@ var fireConfig = {
     UserService,
     CartService,
     OrderService,
-    Facebook
+    Facebook,
+    Camera
   ]
 })
 export class AppModule {}

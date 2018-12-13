@@ -90,4 +90,5 @@
         <variable name="APP_NAME" value="yaowarat101" />
     </plugin>
     <engine name="android" spec="6.3.0" />
+    <plugin name="cordova-plugin-camera" spec="4.0.3" />
 </widget>
