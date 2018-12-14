@@ -216,11 +216,11 @@ export class ProductPage {
                   text: 'ไปลองสินค้า',
                   handler: () => {
                     console.log('Agree clicked');
-                    this.cartService.post(product, id).subscribe(async res => {
+                    
                       this.appCtrl.getRootNav().push(TryproductPage,{
                         listTryproduct : this.listTryproduct
                       });
-                    });
+                   
                   }
                 }]
             });
@@ -251,10 +251,7 @@ export class ProductPage {
                     handler: () => {
                       console.log('Agree clicked');
                       this.cartService.post(product, id).subscribe(async res => {
-                        this.navCtrl.push(TabsPage,
-                          {
-                            cart: true
-                          });
+                        this.navCtrl.push(CartPage);
                         // this.navCtrl.setRoot(this.navCtrl.getActive().component);
                       });
                     }

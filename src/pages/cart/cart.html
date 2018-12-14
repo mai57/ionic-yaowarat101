@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content style="background-color: whitesmoke;">
   <ion-list no-lines>
     <ion-card style="margin-top:10px">
       <ion-item>
@@ -43,8 +43,15 @@
         </ion-thumbnail>
         <h2>{{ cart.p_Name }}</h2>
         <p>{{ cart.p_Price | number:'1.2-2' }}&nbsp;฿ </p>
-        <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="plusamount(cart,i)"></ion-icon>{{cart.p_Amount}}<ion-icon
-          ios="ios-remove-circle" md="md-remove-circle" (click)="devalueamount(cart,i)"></ion-icon>
+        <ion-chip color="danger" style="line-height:19px; height:19px;">
+          <button ion-button clear color="light" (click)="plusamount(cart,i)" style="height:20px; padding-left: 2px;">
+            <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+          </button>
+          {{cart.p_Amount}}
+          <button ion-button clear color="light" (click)="devalueamount(cart,i)" style="height:20px; padding-right: 2px;">
+            <ion-icon ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
+          </button>
+        </ion-chip>
         <ion-thumbnail item-end>
           <p center text-right style="font-size: 20px" (click)="deleteCart(cart)">
             <ion-icon ios="ios-trash" md="md-trash"></ion-icon>

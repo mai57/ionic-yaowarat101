@@ -12,6 +12,8 @@ import { OrderService } from '../../service/order.service';
 import { OrderPage } from '../order/order';
 import { PointPage } from '../point/point';
 import { ContactPage } from '../contact/contact';
+import { ChatPage } from '../chat/chat';
+import { ManagechatforadminPage } from '../managechatforadmin/managechatforadmin';
 
 
 /**
@@ -112,6 +114,15 @@ export class ProfilePage {
   }
   toPoint(){
     this.navCtrl.push(PointPage);
+  }
+
+  tochat(){
+    if(this.userRole == 'user'){
+      this.appCtrl.getRootNav().push(ChatPage);
+    }
+    else if(this.userRole == 'admin'){
+      this.appCtrl.getRootNav().push(ManagechatforadminPage);
+    }
   }
 
   toContact(){

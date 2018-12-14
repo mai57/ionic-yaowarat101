@@ -11,6 +11,8 @@ import { Cart } from '../cart/carts';
 import { ProfilePage } from '../profile/profile';
 import { NavParams, NavController } from 'ionic-angular';
 
+import { Events } from 'ionic-angular';
+
 
 @Component({
   templateUrl: 'tabs.html'
@@ -28,33 +30,36 @@ export class TabsPage {
   user = new User;
   carts: Cart[];
   error: any;
-  badges = 0;
-  cart:boolean;
+  private badges:number = 0;
+  test: string = "dasfsdfs";
+  cart:boolean ;
 
   constructor(
     private storage: Storage,
     private cartService: CartService,
     private userService: UserService,
     public navParams: NavParams,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public events: Events
   ) {
 
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad tabs');
-    this.cart = this.navParams.get("cart");
-    // console.log(this.cart);
+    
     this.storage.get('userId').then((val) => {
       this.userId = val;
       this.getCarts(this.userId);
       this.getUser()
+      
     });
     
   }
 
   ionViewDidEnter(){
     console.log('ionViewDidEnter tabs');
+    
     // setTimeout(() => {
     //   console.log(this.carts.length);
     //   this.badges = this.carts.length;
@@ -63,7 +68,17 @@ export class TabsPage {
 
   ionViewWillEnter(){
     console.log('ionViewWillEnter tabs');
-    console.log(this.carts);
+    // console.log(this.carts);
+    this.cart = this.navParams.get("cart");
+    // console.log(this.cart);
+    if(this.cart == true){
+      this.updateTabBadge();
+      // console.log("sdfsdf");
+    }
+  }
+
+  public updateTabBadge(): void {
+    this.events.publish('cart:updated', ++this.badges);
   }
 
   getUser(): void {
@@ -75,9 +90,9 @@ export class TabsPage {
       .getCarts(id)
       .subscribe(
         carts => (this.carts = carts
-          ,this.badges = this.carts.length),
+          ,this.badges = this.carts.length,console.log(this.badges)),
         error => (this.error = error)
       )
-    console.log(this.carts);
+    // console.log(this.carts);
   }
 }
