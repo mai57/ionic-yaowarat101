@@ -218,7 +218,8 @@ export class ProductPage {
                     console.log('Agree clicked');
                     this.cartService.post(product, id).subscribe(async res => {
                       this.appCtrl.getRootNav().push(TryproductPage,{
-                        listTryproduct : this.listTryproduct
+                        listTryproduct : this.listTryproduct,
+                        countlistTryproduct: this.listTryproduct.length
                       });
                     });
                   }
