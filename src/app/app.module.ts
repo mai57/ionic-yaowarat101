@@ -56,6 +56,8 @@ import { TryproductPage } from '../pages/tryproduct/tryproduct';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { IonicImageViewerModule } from 'ionic-img-viewer'
 
+import { AbsoluteDragDirective } from '../directives/absolute-drag/absolute-drag'
+
 
 
 var fireConfig = {
@@ -97,7 +99,8 @@ var fireConfig = {
     ChatforadminPage,
     ManagechatforadminPage,
     TryproductPage,
-    OtherPage
+    OtherPage,
+    AbsoluteDragDirective
     // WebStorageService
   ],
   imports: [
@@ -108,6 +111,7 @@ var fireConfig = {
     AngularFireModule.initializeApp(fireConfig),
     AngularFireDatabaseModule,
     IonicImageViewerModule
+    // AngularDraggableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
