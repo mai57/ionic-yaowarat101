@@ -19,3 +19,16 @@ page-home {
     }
   
   }
+
+  #cart-btn {
+    position:static;
+    right: 10px;
+ }
+ 
+ #cart-badge {
+    position: absolute;
+    background:red;
+    width:auto;
+    top: -5px;
+    right: -5px;
+ }

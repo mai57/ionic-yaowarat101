@@ -50,7 +50,9 @@ export class TryproductPage {
   listTryproduct = [];
   countlistTryproduct = 0;
   myphoto:any;
-  product="สร้อยคอ";
+
+  categoryBy = "สร้อยคอ";
+  searchProductText = "";
 
   products: Product[];
 

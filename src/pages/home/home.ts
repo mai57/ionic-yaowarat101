@@ -13,6 +13,10 @@ import { OtherPage } from '../other/other';
 import { ChatPage } from '../chat/chat';
 import { Storage } from '@ionic/storage'
 import { ManagechatforadminPage } from '../managechatforadmin/managechatforadmin';
+import { User } from '../firstpage/user';
+import { UserService } from '../firstpage/user.service';
+import { Cart } from '../cart/carts';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'page-home',
@@ -24,18 +28,46 @@ export class HomePage {
   isAndroid: boolean = false;
   isIos: boolean = false;
   userRole: string = 'user';
+  userId: number;
+  user = new User;
+  carts: Cart[];
+  badges:number = 0;
+  error: any;
   Url = "";
 
   constructor(public navCtrl: NavController,
     private inAppBrowser: InAppBrowser,
     platform: Platform,
     public appCtrl: App,
-    private storage: Storage) {
+    private storage: Storage,
+    private userService: UserService,
+    private cartService: CartService) {
     this.isAndroid = platform.is('android');
     this.isIos = platform.is('ios');
     this.storage.get('userRole').then(val => {
       this.userRole = val
     })
+    this.storage.get('userId').then((val) => {
+      this.userId = val;
+      this.getCarts(this.userId);
+      this.getUser()
+      
+    });
+  }
+
+  getUser(): void {
+    this.userService.getUser(this.userId).subscribe(user => (this.user = user[0]), error => (console.log(error)));
+  }
+
+  getCarts(id: number): void {
+    this.cartService
+      .getCarts(id)
+      .subscribe(
+        carts => (this.carts = carts
+          ,this.badges = this.carts.length,console.log(this.badges)),
+        error => (this.error = error)
+      )
+    // console.log(this.carts);
   }
 
 

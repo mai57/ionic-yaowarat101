@@ -11,13 +11,18 @@
         </span>
       </button>
     </ion-buttons> -->
-    <!-- <ion-buttons end>
-      <button ion-button (click)="tocart()">
+    <ion-buttons end>
+      <!-- <button  ion-button (click)="tocart()">
         <span ion-text color="primary">
           <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
         </span>
-      </button>
-    </ion-buttons> -->
+      </button> -->
+      <button id="cart-btn" ion-button icon-only (click)="tocart()">
+        <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+        <ion-badge id="cart-badge" >{{  badges>0 ? badges : null }}</ion-badge>
+        <!-- <ion-label [(ngModel)]="badges"></ion-label> -->
+  </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

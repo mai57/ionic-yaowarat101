@@ -23,18 +23,18 @@ import { TryproductPage } from '../pages/tryproduct/tryproduct';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = TabsPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage:any = ProductPage;
+  // pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,public statusBar: StatusBar,public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    this.pages = [
-      { title: 'Home', component: TabsPage },
-      { title: 'ล่าสุด', component: AboutPage },
-      { title: 'ตะกร้าสินค้า', component: OrderPage },
-      { title: 'เกี่ยวกับ', component: AboutPage },
-    ];
+    // this.pages = [
+    //   { title: 'Home', component: TabsPage },
+    //   { title: 'ล่าสุด', component: AboutPage },
+    //   { title: 'ตะกร้าสินค้า', component: OrderPage },
+    //   { title: 'เกี่ยวกับ', component: AboutPage },
+    // ];
 
   }
 
@@ -47,9 +47,9 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+  // openPage(page) {
+  //   // Reset the content nav to have just this page
+  //   // we wouldn't want the back button to show in this scenario
+  //   this.nav.setRoot(page.component);
+  // }
 }

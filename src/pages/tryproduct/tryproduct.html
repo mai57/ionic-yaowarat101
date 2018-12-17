@@ -6,87 +6,89 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ลองสินค้า</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="takePhoto()">
-        <span ion-text color="primary">
-          <ion-icon ios="ios-camera" md="md-camera" style="font-size: 30px;"></ion-icon>
-        </span>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>ลองสินค้า</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="takePhoto()">
+                <span ion-text color="primary">
+                    <ion-icon ios="ios-camera" md="md-camera" style="font-size: 30px;"></ion-icon>
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="no-scroll" style="background-color: whitesmoke;">
 
-  <div align="center" height="800px" >
-      <img align="center" style="height: 400px; width: 300px;z-index:-1;position:absolute;display:block" [src]="_DomSanitizationService.bypassSecurityTrustUrl(myphoto)">
-      
+    <div align="center" height="800px">
+        <img align="center" style="height: 400px; width: 300px;z-index:-1;position:static;display:block;" [src]="_DomSanitizationService.bypassSecurityTrustUrl(myphoto)">
 
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="false" id="1" startTop="0" startLeft="0"  style="z-index: 10;width:350px;height:350px;text-align: center !important;
+
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="false" id="1" startTop="0" startLeft="0" style="z-index: 10;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
-              transform: scale(1) translate(1px, 1px) rotate(0deg);">
+              transform: scale(1) translate(0px, 0px) rotate(0deg); ">
                 <img *ngIf="listTryproduct[0] && selectedProduct != 1" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[0].p_Id}}.png">
             </div>
-          </div>
-          
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="false" id="2" startTop="0" startLeft="0"   style="z-index: 2;width:350px;height:350px;text-align: center !important;
+        </div>
+
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="false" id="2" startTop="0" startLeft="0" style="z-index: 2;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
               transform: scale(1) translate(2px, 2px) rotate(0deg);">
-                  <img *ngIf="listTryproduct[1] && selectedProduct != 2" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[1].p_Id}}.png">
-              </div>
-          </div>
-          
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="false" id="3" startTop="0" startLeft="0"   style="z-index: 3;width:350px;height:350px;text-align: center !important;
+                <img *ngIf="listTryproduct[1] && selectedProduct != 2" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[1].p_Id}}.png">
+            </div>
+        </div>
+
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="false" id="3" startTop="0" startLeft="0" style="z-index: 3;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
               transform: scale(1) translate(3px, 3px) rotate(0deg);">
-                  <img *ngIf="listTryproduct[2] && selectedProduct != 3" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[2].p_Id}}.png">
-              </div>
-          </div>
-          
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="false" id="4" startTop="0" startLeft="0"   style="z-index: 4;width:350px;height:350px;text-align: center !important;
+                <img *ngIf="listTryproduct[2] && selectedProduct != 3" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[2].p_Id}}.png">
+            </div>
+        </div>
+
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="false" id="4" startTop="0" startLeft="0" style="z-index: 4;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
               transform: scale(1) translate(4px, 4px) rotate(0deg);">
-                  <img *ngIf="listTryproduct[3] && selectedProduct != 4" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[3].p_Id}}.png">
-              </div>
-          </div>
-          
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="false" id="5" startTop="0" startLeft="0"   style="z-index: 5;width:350px;height:350px;text-align: center !important;
+                <img *ngIf="listTryproduct[3] && selectedProduct != 4" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[3].p_Id}}.png">
+            </div>
+        </div>
+
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="false" id="5" startTop="0" startLeft="0" style="z-index: 5;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
               transform: scale(1) translate(5px, 5px) rotate(0deg);">
-                  <img *ngIf="listTryproduct[4] && selectedProduct != 5" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[4].p_Id}}.png">
-              </div>
-          </div>
+                <img *ngIf="listTryproduct[4] && selectedProduct != 5" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[4].p_Id}}.png">
+            </div>
+        </div>
 
 
 
-          <div style="height:0px">
-              <div absolute-drag absolute-drag-enable="true" absolute-drag-scale="{{adjustTransform.scale}}" absolute-drag-translateX="{{adjustTransform.translateX}}" absolute-drag-translateY="{{adjustTransform.translateY}}" absolute-drag-rotation="{{adjustTransform.rotation}}" id="idSelected" startTop="0" startLeft="0"   style="z-index: 5;width:350px;height:350px;text-align: center !important;
+        <div style="height:0px; position: absolute; top: 0px;">
+            <div absolute-drag absolute-drag-enable="true" absolute-drag-scale="{{adjustTransform.scale}}"
+                absolute-drag-translateX="{{adjustTransform.translateX}}" absolute-drag-translateY="{{adjustTransform.translateY}}"
+                absolute-drag-rotation="{{adjustTransform.rotation}}" id="idSelected" startTop="0" startLeft="0" style="z-index: 5;width:350px;height:350px;text-align: center !important;
               display: table-cell !important;
               vertical-align: middle !important;
               transform: scale(1) translate(1px, 1px) rotate(0deg);">
-                  <img *ngIf="selectedProduct != -1" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[selectedProduct-1].p_Id}}.png">
-              </div>
-          </div>
-          
+                <img *ngIf="selectedProduct != -1" style="height:100px;width:100px" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[selectedProduct-1].p_Id}}.png">
+            </div>
+        </div>
 
 
 
 
-      <!-- <div *ngIf="countlistTryproduct >= 1">
+
+        <!-- <div *ngIf="countlistTryproduct >= 1">
           <div absolute-drag absolute-drag-enable="{{enableProduct1}}" id="1" startTop="350" startLeft="120"  style="z-index: 10;width:350px;height:350px;text-align: center !important;
             display: table-cell !important;
             vertical-align: middle !important;">
@@ -135,35 +137,35 @@
           </div>
 
       </div> -->
-      
 
-    <!-- <div class="col-sm-8" absolute-drag style="z-index:500;width: 300px;height:300px;margin-bottom:100px"> -->
+
+        <!-- <div class="col-sm-8" absolute-drag style="z-index:500;width: 300px;height:300px;margin-bottom:100px"> -->
         <!-- <div style="width:300px;height:300px"  [rzMaxWidth]="300" [rzMaxHeight]="300"> -->
-            <!-- <div absolute-drag id="1" name="ss"  style="z-index: 5;width:1000px;height:1000px;text-align: center !important;
+        <!-- <div absolute-drag id="1" name="ss"  style="z-index: 5;width:1000px;height:1000px;text-align: center !important;
             display: table-cell !important;
             vertical-align: middle !important;">
                 <img style="height:300px;width:300px" src="https://yaowarat101.net/image/tryproducts/2.png">
             </div> -->
-          
 
-            <!-- <img absolute-drag id="2" style="z-index: 200;position:absolute" *ngIf="listTryproduct[1]" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[1].p_Id}}.png">
+
+        <!-- <img absolute-drag id="2" style="z-index: 200;position:absolute" *ngIf="listTryproduct[1]" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[1].p_Id}}.png">
 
             <img absolute-drag id="3" style="z-index: 300;position:absolute" *ngIf="listTryproduct[2]" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[2].p_Id}}.png">
 
             <img absolute-drag id="4" style="z-index: 400;position:absolute" *ngIf="listTryproduct[3]" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[3].p_Id}}.png">
 
             <img absolute-drag id="5" style="z-index: 500;position:absolute" *ngIf="listTryproduct[4]" src="https://yaowarat101.net/image/tryproducts/{{listTryproduct[4].p_Id}}.png"> -->
-          <div>
-              <!-- <img #zoom id="1" src="https://yaowarat101.net/image/tryproducts/2.png" style="display: absolute;max-height: 300px;max-width: 300px;height: inherit; width: inherit;z-index: 5000"> -->
-              
-          </div>
-          
+        <div>
+            <!-- <img #zoom id="1" src="https://yaowarat101.net/image/tryproducts/2.png" style="display: absolute;max-height: 300px;max-width: 300px;height: inherit; width: inherit;z-index: 5000"> -->
+
+        </div>
+
         <!-- </div> -->
 
-  <!-- </div> -->
+        <!-- </div> -->
 
 
-<!-- 
+        <!-- 
         <div style="margin-top:40px">
           <button mdbTooltip="คลิกเพื่อหมุนรูป ในขณะที่หมุนจะไม่สามารถขยับขยายรูปได้" placement="top"
             triggers="focus" class="btn btn-outline-grey btn-responsive float-left" (click)="showSlider(i+1)">
@@ -172,45 +174,48 @@
           <input *ngIf="slider1Enable" class="custom-range" style="z-index:500; width:80%; margin-top:25px"
             type="range" min="-90" max="90" value="0" (ngModelChange)="rotateImage(i+1)" [(ngModel)]="Deg1">
         </div> -->
-  </div>
-  
+    </div>
+
 </ion-content>
 
 <ion-footer>
 
     <ion-toolbar>
         <ion-item no-lines>
-          <ion-label>เลือกเพื่อเลื่อน</ion-label>
-          <ion-select [(ngModel)]="selectedProduct" (ngModelChange)="onselectProduct()">
+            <ion-label>เลือกเพื่อปรับขนาด</ion-label>
+            <ion-select [(ngModel)]="selectedProduct" (ngModelChange)="onselectProduct()">
 
-            <ion-option *ngFor="let item of listTryproduct ; let i = index" value="{{i+1}}">{{item.p_Name}}</ion-option>
-          </ion-select>
+                <ion-option *ngFor="let item of listTryproduct ; let i = index" value="{{i+1}}">{{item.p_Name}}</ion-option>
+            </ion-select>
         </ion-item>
-      </ion-toolbar>
+    </ion-toolbar>
 
 
-  <ion-slides class="image-slider" loop="true" slidesPerView="4">
-    <ion-slide *ngFor="let product of products">
-      <img (click)="onclickImageSlide(product)" src="https://yaowarat101.net/image/products/{{product.p_Id}}.jpg" class="thumb-img"/>
-    </ion-slide>
-  </ion-slides>
+    <ion-slides class="image-slider" loop="true" slidesPerView="4">
+        <ion-slide *ngFor="let product of products | productFilter : searchProductText : categoryBy as testvalue ; let i=index" style="margin: 10px; background-color:whitesmoke;box-shadow: -1px 1px 54px -3px rgba(153,153,153,1);">
+            <!-- <ion-card> -->
+                <img (click)="onclickImageSlide(product)" src="https://yaowarat101.net/image/tryproducts/{{ product.p_Id }}.png"
+                class="thumb-img" style="width: 60px; height: 60px;" />
+            <!-- </ion-card> -->
+        </ion-slide>
+    </ion-slides>
 
 
-  <ion-toolbar>
-    <ion-item no-lines>
-      <ion-label>สินค้า</ion-label>
-      <ion-select [(ngModel)]="product">
-        <ion-option value="สร้อยคอ">สร้อยคอ</ion-option>
-        <ion-option value="แหวน">แหวน</ion-option>
-        <ion-option value="กำไล">กำไล</ion-option>
-        <ion-option value="สร้อยข้อมือ">สร้อยข้อมือ</ion-option>
-        <ion-option value="ต่างหู">ต่างหู</ion-option>
-        <ion-option value="จี้">จี้</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-item no-lines>
+            <ion-label>สินค้า</ion-label>
+            <ion-select [(ngModel)]="categoryBy">
+                <ion-option value="สร้อยคอ">สร้อยคอ</ion-option>
+                <ion-option value="แหวน">แหวน</ion-option>
+                <ion-option value="กำไล">กำไล</ion-option>
+                <ion-option value="สร้อยข้อมือ">สร้อยข้อมือ</ion-option>
+                <ion-option value="ต่างหู">ต่างหู</ion-option>
+                <ion-option value="จี้">จี้</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-toolbar>
 
-  <!-- <ion-grid>
+    <!-- <ion-grid>
         <ion-row no-padding no-margin>
             <ion-col col-12 no-padding>
                 <button ion-button full><ion-icon ios="ios-camera" md="md-camera" style="zoom:2.0;"></ion-icon>Button 3</button>
