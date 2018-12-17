@@ -18,7 +18,7 @@
         </span>
       </button> -->
       <button id="cart-btn" ion-button icon-only (click)="tocart()">
-        <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+        <ion-icon ios="ios-cart" md="md-cart" style="color : #ff9000"></ion-icon>
         <ion-badge id="cart-badge" >{{  badges>0 ? badges : null }}</ion-badge>
         <!-- <ion-label [(ngModel)]="badges"></ion-label> -->
   </button>
@@ -29,17 +29,18 @@
 
 <ion-content style="background-color: whitesmoke;">
   <ion-list>
-    <ion-item style="text-align: center; background-color: red;">
-      <img src="https://yaowarat101.net/image/logo_yellow.png" alt="" width="200px">
+    <ion-item style="text-align: center; background-color: #ff0000;">
+      <img src="https://yaowarat101.net/image/logo_yellow.png" alt="" width="120px" style="margin : 15px;">
     </ion-item>
   </ion-list>
 
   <ion-grid>
     <ion-row justify-content-start>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toPoint()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon>
+            <!-- <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon> -->
+            <img src="assets/imgs/tam.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -48,10 +49,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toCoupon()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
+            <!-- <ion-icon ios="ios-cash" md="md-cash"></ion-icon> -->
+            <img src="assets/imgs/coupon.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -60,10 +62,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toCredit()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-card" md="md-card"></ion-icon>
+            <!-- <ion-icon ios="ios-card" md="md-card"></ion-icon> -->
+            <img src="assets/imgs/credit.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -72,10 +75,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toAbout()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+            <!-- <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon> -->
+            <img src="assets/imgs/news.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -84,10 +88,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toProduct()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
+            <!-- <ion-icon ios="ios-basket" md="md-basket"></ion-icon> -->
+            <img src="assets/imgs/shop.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -96,10 +101,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toChat()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-headset" md="md-headset"></ion-icon>
+            <!-- <ion-icon ios="ios-headset" md="md-headset"></ion-icon> -->
+            <img src="assets/imgs/chat.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -108,10 +114,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="toContact()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-alert" md="md-alert"></ion-icon>
+            <!-- <ion-icon ios="ios-alert" md="md-alert"></ion-icon> -->
+            <img src="assets/imgs/info.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -120,10 +127,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="OpenUrl('https://www.facebook.com/YaowaratJewelry')">
           <ion-item style="text-align: center;">
-            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+            <!-- <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon> -->
+            <img src="assets/imgs/facebook.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -132,10 +140,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="OpenUrl('https://www.instagram.com/yaowarat_roiet')">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-globe" md="md-globe"></ion-icon>
+            <!-- <ion-icon ios="ios-globe" md="md-globe"></ion-icon> -->
+            <img src="assets/imgs/instagram.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -145,10 +154,11 @@
         </ion-card>
       </ion-col>
 
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="OpenUrl('https://yaowarat101.net')">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-globe" md="md-globe"></ion-icon>
+            <!-- <ion-icon ios="ios-globe" md="md-globe"></ion-icon> -->
+            <img src="assets/imgs/website.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -157,10 +167,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="OpenUrlSizer()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon>
+            <!-- <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon> -->
+            <img src="assets/imgs/rings.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
@@ -169,10 +180,11 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="item_app">
         <ion-card style="text-align: center;" (click)="OpenUrlWeight()">
           <ion-item style="text-align: center;">
-            <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon>
+            <!-- <ion-icon ios="ios-appstore" md="md-appstore"></ion-icon> -->
+            <img src="assets/imgs/weight.png">
           </ion-item>
           <ion-card-content style="padding-left: 0px; padding-right: 0px;">
             <p>
